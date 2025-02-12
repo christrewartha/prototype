@@ -3,6 +3,7 @@
 
 #include "Door.h" // Include the Door class
 #include "Character.h" // Include the Character class
+#include "Player.h" // Include the Player class
 
 class Game {
 public:
@@ -13,32 +14,30 @@ public:
     static const int MAX_TIME_TO_DOOR_OPEN = 120;
     static const int MIN_TIME_TO_DOOR_OPEN = 20;
 
+    static const int TIME_TO_NEXT_ROUND = 120;
+
     static const int X_DOOR_POSITION = 23;
     static const int X_DOOR_WIDTH = 70;
     static const int Y_DOOR_POSITION = 20;
     static const int Y_DOOR_HEIGHT = 120;
 
     // Game state
-    bool doorsCollected[NUM_DOORS];  // Track which doors have been collected from
     int currentDoorIndex;            // Index of the leftmost visible door
-    int playerLives;                 // Player lives
-    int playerScore;                 // Player score
     int round;                       // Current round number
 
+    int time_to_next_round;
+    bool between_rounds;
     // Door and character management
     Door doors[DOORS_DISPLAYED]; 
     int door_timer[DOORS_DISPLAYED];
 
-    Game(): currentDoorIndex(0), playerLives(3), playerScore(0), round(1) {
+    Game(): currentDoorIndex(0), round(1) {
         
     }
 
     void init() {
-        // Initialize doorsCollected array to false
-        for (int i = 0; i < NUM_DOORS; i++) {
-            doorsCollected[i] = false;
-        }
-
+        Player::getInstance().resetPlayer();
+        round = 0;
         InitRound();
 
     }
@@ -47,10 +46,13 @@ public:
     {
         // Initialize doors
         for(int i = 0; i < DOORS_DISPLAYED; i++) {
-            doors[i].init(X_DOOR_POSITION + i * X_DOOR_WIDTH, Y_DOOR_POSITION);
+            doors[i].init( currentDoorIndex + i % NUM_DOORS, X_DOOR_POSITION + i * X_DOOR_WIDTH, Y_DOOR_POSITION);
             door_timer[i] = rand() % (MAX_TIME_TO_DOOR_OPEN - MIN_TIME_TO_DOOR_OPEN) + MIN_TIME_TO_DOOR_OPEN;
         }   
 
+        time_to_next_round = TIME_TO_NEXT_ROUND;
+        between_rounds = false;
+        
     }
 
     void update() {
@@ -74,51 +76,72 @@ public:
         }    
 
         if(all_doors_done) {
-            InitRound();
+            between_rounds = true;
         }
 
+        if(between_rounds) {
+            time_to_next_round--;
+            if(time_to_next_round <= 0) {
+                InitRound();
+            }
+        }
+        handleInput();  
 
-        // 1. Check for player input (shooting, moving between doors)
-        handleInput(); 
-
-        // 2. Update doors (open/close, generate characters)
-        updateDoors();
-
-        // 3. Update characters in open doors (e.g., robber AI, client actions)
-        updateCharacters(); 
-
-        // 4. Check for end of round/level/game
         checkGameStatus(); 
+
     }
 
     void display();
 
     void displayDoorStatus(); // New method to display door status indicators
 
+    void displayPlayerLives();
+
     void handleShot(int x, int y); // Declare the handleShot function
 
-    // Methods to get and update player score and lives
-    int getPlayerScore() const { return playerScore; }
-    void increasePlayerScore(int amount) { playerScore += amount; }
-    int getPlayerLives() const { return playerLives; }
-    void decreasePlayerLives() { playerLives--; }
+    bool doorIsDisplayed(int index); // Declare the doorIsDisplayed method
 
 private:
     void handleInput() {
-        // Process player input (shooting, moving between doors)
-    }
-
-    void updateDoors() {
-        // Logic to open/close doors, move to the next set of doors, etc.
-    }
-
-    void updateCharacters() {
-        // Update the behavior of characters in the open doors
+        if(between_rounds) {
+            if(keysDown() & KEY_LEFT) {
+                currentDoorIndex--;
+                if(currentDoorIndex < 0) {
+                    currentDoorIndex = NUM_DOORS - 1;
+                }
+            }
+            if(keysDown() & KEY_RIGHT) {
+                currentDoorIndex++;
+                if(currentDoorIndex >= NUM_DOORS) {
+                    currentDoorIndex = 0;
+                }
+            }
+        }
     }
 
     void checkGameStatus() {
-        // Check if the player has collected from all doors
+        bool round_complete = true;
+        for(int i = 0; i < NUM_DOORS; i++) 
+        {
+            if(!Player::getInstance().hasDoorBeenCollected(i)) {
+                round_complete = false;
+            }
+        }
+
+        if(round_complete) {
+            round++;
+            InitRound();
+            Player::getInstance().resetDoorsCollected();
+            currentDoorIndex = 0;
+        }
+
         // Check if the player has lost all lives
+        if(Player::getInstance().getPlayerLives() <= 0) {
+            round = 0;
+            InitRound();
+            Player::getInstance().resetPlayer();
+            currentDoorIndex = 0;
+        }
         // Update round/level if necessary
     }
 };

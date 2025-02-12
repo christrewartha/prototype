@@ -3,6 +3,7 @@
 
 #include <nds.h>
 #include <gl2d.h>
+#include "Player.h"
 
 // Define character types as an enum for clarity
 enum class CharacterType {
@@ -15,6 +16,7 @@ enum class CharacterType {
 class Character {
 public:
     CharacterType type;
+    int door_index;
     int xPos, yPos;
     bool isAggressive;
     bool done;
@@ -28,8 +30,8 @@ public:
     int character_height;
 
 
-    Character(CharacterType t, int x, int y, bool aggressive, glImage* spr) 
-      : type(t), xPos(x), yPos(y), isAggressive(aggressive), sprite(spr) 
+    Character(CharacterType t, int index, int x, int y, bool aggressive, glImage* spr) 
+      : type(t), door_index(index), xPos(x), yPos(y), isAggressive(aggressive), sprite(spr) 
       {
         done = false;
         is_alive = true;
@@ -74,11 +76,13 @@ public:
     // Declare the handleShot function
     void handleShot(int x, int y)
     {
-        if(x >= xPos &&
-           x <= (xPos + character_width) && 
-           y >= yPos && 
-           y <= (yPos + character_height)) {
-            get_shot();
+        if(is_alive) {
+            if(x >= xPos + character_x_margin &&
+                x <= (xPos + character_x_margin + character_width) && 
+                y >= yPos + character_y_margin && 
+                y <= (yPos + character_y_margin + character_height)) {
+                get_shot();
+            }
         }
     }
 };
@@ -89,7 +93,7 @@ public:
     static const int TIME_TO_SHOOT = 100;
     int time_to_shoot;
     bool has_shot;
-    Robber(int x, int y, glImage* spr): Character(CharacterType::ROBBER, x, y, true, spr) 
+    Robber(int index, int x, int y, glImage* spr): Character(CharacterType::ROBBER, index, x, y, true, spr) 
     {
         character_x_margin = 5;
         character_y_margin = 15;
@@ -104,8 +108,10 @@ public:
     void shoot() {
         // Play shooting animation/sound
         // Check for collision with player (and decrease player health if hit)
-        has_shot = true;    
-
+        if(!has_shot && is_alive) {
+            has_shot = true;    
+            Player::getInstance().decreasePlayerLives();
+        }
     }
 
     void update() override {
@@ -147,8 +153,8 @@ public:
 // Client class (inherits from Character)
 class Client: public Character {
 public:
-    Client(int x, int y, glImage* spr): Character(CharacterType::CLIENT, x, y, false, spr) 
-    {
+    Client(int index, int x, int y, glImage* spr): Character(CharacterType::CLIENT, index, x, y, false, spr) 
+    {   
         character_x_margin = 5;
         character_y_margin = 15;
         character_width = 50;
@@ -160,7 +166,8 @@ public:
     void depositMoney() {
         // Increase player's score
         // Play sound effect/animation
-        
+        Player::getInstance().increasePlayerScore(100);
+        Player::getInstance().setDoorCollected(door_index, true);
     }
 
     void switch_to_robber() {
@@ -175,7 +182,7 @@ public:
     void get_shot() override {
         // Specific behavior for when the client gets shot
         // E.g., decrease player life
-        
+        Player::getInstance().decreasePlayerLives();
         is_alive = false;
     }
 
@@ -195,7 +202,7 @@ class HatGuy: public Character {
 public:
     int hats;
 
-    HatGuy(int x, int y, glImage* spr): Character(CharacterType::HAT_GUY, x, y, false, spr), hats(5) 
+    HatGuy(int index, int x, int y, glImage* spr): Character(CharacterType::HAT_GUY, index, x, y, false, spr), hats(5) 
     {
         character_x_margin = 10;
         character_y_margin = 60;
@@ -207,8 +214,9 @@ public:
 
     void loseHat() {
         hats--;
-        if (hats == 0) {
-            // Reveal money (maybe change sprite to show money)
+        if (hats < 0) {
+            is_alive = false;
+            Player::getInstance().decreasePlayerLives();
         }
     }
 
@@ -218,9 +226,16 @@ public:
     }
 
     void get_shot() override {
-        // Specific behavior for when the HatGuy gets shot
-        // E.g., decrease player lif    e
-        is_alive = false;
+        loseHat();
+    }
+
+    void depositMoney() {
+        if(hats == 0) {
+            // Increase player's score
+            // Play sound effect/animation
+            Player::getInstance().increasePlayerScore(100);
+            Player::getInstance().setDoorCollected(door_index, true);
+        }
     }
 
     void display() override {
@@ -231,6 +246,21 @@ public:
                     xPos + character_x_margin + character_width, 
                     yPos + character_y_margin + character_height, 
                     RGB15(0, 0, 255));
+
+            // draw the hats    
+            int hat_x_margin = 25;
+            int hat_y_margin = 60;
+            int hat_width = 10;
+            int hat_height = 10;
+            int hat_spacing = 3;    
+            for(int i = 0; i < hats; i++) 
+            {
+                glBoxFilled(xPos + hat_x_margin, 
+                    yPos + hat_y_margin - (hat_height + hat_spacing) * i, 
+                    xPos + hat_x_margin + hat_width, 
+                    yPos + hat_y_margin - (hat_height + hat_spacing) * i + hat_height, 
+                    RGB15(255, 255, 255));
+            }
         }
     }
 };

@@ -11,19 +11,21 @@ public:
     static const int DOOR_HEIGHT = 120;
     
     Door();
-    void init(int x, int y);
+    void init(int index, int x, int y);
     void open();
     void close();
     void update();
     bool isOpen() const;
     bool isUnopened() const;
     bool isDone() const;
+    int getIndex() const;   
     Character* getCharacter();
     void display();
     void handleShot(int x, int y);
 
 
 private:
+    int index;
     int xPos;
     int yPos;   
     bool openState; // true if the door is open, false if closed

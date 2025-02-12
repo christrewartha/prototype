@@ -4,26 +4,31 @@
 
 Door::Door() : openState(false), character(nullptr) {}
 
-void Door::init(int x, int y) {
+void Door::init(int index, int x, int y) {
     xPos = x;
     yPos = y;   
     openState = false;
     unopenedState = true;
     done = false;
     character = nullptr;
+    this->index = index;    
     // Randomly select a character type to reveal
     int randomType = rand() % 3; // 0, 1, or 2
     switch (randomType) {
         case 0:
-            character = new Robber(xPos + X_MARGIN, yPos + Y_MARGIN, nullptr); // Replace nullptr with actual sprite
+            character = new Robber(index, xPos + X_MARGIN, yPos + Y_MARGIN, nullptr); // Replace nullptr with actual sprite
             break;
         case 1:
-            character = new Client(xPos + X_MARGIN, yPos + Y_MARGIN, nullptr); // Replace nullptr with actual sprite
+            character = new Client(index, xPos + X_MARGIN, yPos + Y_MARGIN, nullptr); // Replace nullptr with actual sprite
             break;
         case 2:
-            character = new HatGuy(xPos + X_MARGIN, yPos + Y_MARGIN, nullptr); // Replace nullptr with actual sprite
+            character = new HatGuy(index, xPos + X_MARGIN, yPos + Y_MARGIN, nullptr); // Replace nullptr with actual sprite
             break;
     }
+}
+
+int Door::getIndex() const {
+    return index;
 }
 
 void Door::open() {

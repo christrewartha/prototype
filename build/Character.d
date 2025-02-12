@@ -112,7 +112,8 @@ Character.o: D:/devkitPro/projects/nds/prototype/source/Character.cpp \
  D:/devkitPro/libnds/include/nds/arm9/trig_lut.h \
  D:/devkitPro/libnds/include/nds/arm9/video.h \
  D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
- D:/devkitPro/libnds/include/gl2d.h
+ D:/devkitPro/libnds/include/gl2d.h \
+ D:/devkitPro/projects/nds/prototype/source/Player.h
 D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/libnds/include/nds.h:
 D:/devkitPro/calico/include/calico.h:
@@ -228,3 +229,4 @@ D:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
 D:/devkitPro/libnds/include/nds/arm9/video.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
 D:/devkitPro/libnds/include/gl2d.h:
+D:/devkitPro/projects/nds/prototype/source/Player.h:
