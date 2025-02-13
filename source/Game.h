@@ -45,7 +45,7 @@ public:
     {
         // Initialize doors
         for(int i = 0; i < DOORS_DISPLAYED; i++) {
-            doors[i].init( currentDoorIndex + i % NUM_DOORS, X_DOOR_POSITION + i * X_DOOR_WIDTH, Y_DOOR_POSITION);
+            doors[i].init( (currentDoorIndex + i) % NUM_DOORS, X_DOOR_POSITION + i * X_DOOR_WIDTH, Y_DOOR_POSITION);
             door_timer[i] = rand() % (MAX_TIME_TO_DOOR_OPEN - MIN_TIME_TO_DOOR_OPEN) + MIN_TIME_TO_DOOR_OPEN;
         }   
 
