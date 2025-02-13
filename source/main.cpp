@@ -6,10 +6,13 @@
 #include "Character.h"
 #include "Door.h"
 #include "Game.h"
+#include "GLFont.h" // Include the new Font class
+#include "GLFontManager.h" // Include the GLFontManager class
 
 
 #include "clienttest16.h"
 glImage  Client[1];
+
 
 // Ensure that all includes are above the class definition
 class App {
@@ -27,8 +30,14 @@ public:
         // sprites
         vramSetBankA( VRAM_A_TEXTURE );
         vramSetBankB( VRAM_B_TEXTURE );
+	    vramSetBankF(VRAM_F_TEX_PALETTE);  // Allocate VRAM bank for all the palettes
+    	vramSetBankE(VRAM_E_MAIN_BG);	
 
-		game.init();
+        // Initialize the font manager
+        GLFontManager::getInstance().init();
+
+        // Initialize the game
+        game.init();
 
 /*
         int ClientTextureID =
@@ -75,6 +84,9 @@ public:
 						touchY + 2, 
 						RGB15(255, 255, 0));
 
+            // Use GLFontManager to render text
+            //GLFontManager::getInstance().renderTextCentered(0, 100, "FONTS BY ADIGUN A. POLACK");
+            //GLFontManager::getInstance().renderTextCentered(0, 120, "CODE BY RELMINATOR");
 
             //glColor( RGB15(31,0,31) );
             //glSprite( 100, 100, GL_FLIP_NONE, Client );

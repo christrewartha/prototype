@@ -1,27 +1,14 @@
-main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
- D:/devkitPro/libnds/include/gl2d.h \
- D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
- D:/devkitPro/libnds/include/nds/dma.h \
- D:/devkitPro/libnds/include/nds/ndstypes.h \
- D:/devkitPro/calico/include/calico/types.h \
- D:/devkitPro/calico/include/calico/nds/dma.h \
- D:/devkitPro/calico/include/calico/gba/dma.h \
- D:/devkitPro/calico/include/calico/nds/io.h \
- D:/devkitPro/calico/include/calico/nds/mm.h \
- D:/devkitPro/libnds/include/nds/arm9/sassert.h \
- D:/devkitPro/libnds/include/nds/arm9/video.h \
- D:/devkitPro/calico/include/calico/nds/lcd.h \
- D:/devkitPro/calico/include/calico/gba/lcd.h \
- D:/devkitPro/calico/include/calico/nds/arm9/vram.h \
- D:/devkitPro/libnds/include/nds/arm9/cache.h \
- D:/devkitPro/libnds/include/nds/arm9/trig_lut.h \
- D:/devkitPro/libnds/include/nds/arm9/math.h \
- D:/devkitPro/libnds/include/nds/arm9/dynamicArray.h \
+GLFontManager.o: \
+ D:/devkitPro/projects/nds/prototype/source/GLFontManager.cpp \
+ D:/devkitPro/projects/nds/prototype/source/GLFontManager.h \
  D:/devkitPro/libnds/include/nds.h D:/devkitPro/calico/include/calico.h \
+ D:/devkitPro/calico/include/calico/types.h \
  D:/devkitPro/calico/include/calico/arm/psr.h \
  D:/devkitPro/calico/include/calico/arm/cp15.h \
  D:/devkitPro/calico/include/calico/system/sysclock.h \
+ D:/devkitPro/calico/include/calico/nds/mm.h \
  D:/devkitPro/calico/include/calico/nds/mm_env.h \
+ D:/devkitPro/calico/include/calico/nds/io.h \
  D:/devkitPro/calico/include/calico/dev/dldi_defs.h \
  D:/devkitPro/calico/include/calico/arm/common.h \
  D:/devkitPro/calico/include/calico/arm/cache.h \
@@ -40,6 +27,8 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/calico/include/calico/nds/bios.h \
  D:/devkitPro/calico/include/calico/nds/timer.h \
  D:/devkitPro/calico/include/calico/gba/timer.h \
+ D:/devkitPro/calico/include/calico/nds/dma.h \
+ D:/devkitPro/calico/include/calico/gba/dma.h \
  D:/devkitPro/calico/include/calico/nds/ndma.h \
  D:/devkitPro/calico/include/calico/nds/env.h \
  D:/devkitPro/calico/include/calico/nds/tlnc.h \
@@ -48,6 +37,8 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/calico/include/calico/nds/keypad.h \
  D:/devkitPro/calico/include/calico/gba/keypad.h \
  D:/devkitPro/calico/include/calico/nds/touch.h \
+ D:/devkitPro/calico/include/calico/nds/lcd.h \
+ D:/devkitPro/calico/include/calico/gba/lcd.h \
  D:/devkitPro/calico/include/calico/nds/pm.h \
  D:/devkitPro/calico/include/calico/dev/blk.h \
  D:/devkitPro/calico/include/calico/dev/disc_io.h \
@@ -63,10 +54,12 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/calico/include/calico/nds/sound.h \
  D:/devkitPro/calico/include/calico/nds/arm9/mic.h \
  D:/devkitPro/calico/include/calico/nds/mic.h \
+ D:/devkitPro/calico/include/calico/nds/arm9/vram.h \
  D:/devkitPro/calico/include/calico/nds/arm9/ovl.h \
  D:/devkitPro/libnds/include/nds/libversion.h \
  D:/devkitPro/libnds/include/nds/ndstypes.h \
  D:/devkitPro/libnds/include/nds/bios.h \
+ D:/devkitPro/libnds/include/nds/ndstypes.h \
  D:/devkitPro/libnds/include/nds/card.h \
  D:/devkitPro/libnds/include/nds/ndstypes.h \
  D:/devkitPro/libnds/include/nds/debug.h \
@@ -82,8 +75,16 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/libnds/include/nds/arm9/dynamicArray.h \
  D:/devkitPro/libnds/include/nds/arm9/linkedlist.h \
  D:/devkitPro/libnds/include/nds/arm9/background.h \
+ D:/devkitPro/libnds/include/nds/arm9/video.h \
+ D:/devkitPro/libnds/include/nds/arm9/sassert.h \
  D:/devkitPro/libnds/include/nds/memory.h \
+ D:/devkitPro/libnds/include/nds/dma.h \
  D:/devkitPro/libnds/include/nds/arm9/boxtest.h \
+ D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
+ D:/devkitPro/libnds/include/nds/arm9/cache.h \
+ D:/devkitPro/libnds/include/nds/arm9/trig_lut.h \
+ D:/devkitPro/libnds/include/nds/arm9/math.h \
+ D:/devkitPro/libnds/include/nds/arm9/dynamicArray.h \
  D:/devkitPro/libnds/include/nds/arm9/cache.h \
  D:/devkitPro/libnds/include/nds/arm9/console.h \
  D:/devkitPro/libnds/include/nds/arm9/background.h \
@@ -112,37 +113,22 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/libnds/include/nds/arm9/trig_lut.h \
  D:/devkitPro/libnds/include/nds/arm9/video.h \
  D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
- D:/devkitPro/projects/nds/prototype/source/Character.h \
- D:/devkitPro/projects/nds/prototype/source/Player.h \
- D:/devkitPro/projects/nds/prototype/source/Door.h \
- D:/devkitPro/projects/nds/prototype/source/Game.h \
+ D:/devkitPro/libnds/include/gl2d.h \
  D:/devkitPro/projects/nds/prototype/source/GLFont.h \
- D:/devkitPro/projects/nds/prototype/source/GLFontManager.h \
- D:/devkitPro/projects/nds/prototype/build/clienttest16.h
-D:/devkitPro/libnds/include/gl2d.h:
-D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
-D:/devkitPro/libnds/include/nds/dma.h:
-D:/devkitPro/libnds/include/nds/ndstypes.h:
-D:/devkitPro/calico/include/calico/types.h:
-D:/devkitPro/calico/include/calico/nds/dma.h:
-D:/devkitPro/calico/include/calico/gba/dma.h:
-D:/devkitPro/calico/include/calico/nds/io.h:
-D:/devkitPro/calico/include/calico/nds/mm.h:
-D:/devkitPro/libnds/include/nds/arm9/sassert.h:
-D:/devkitPro/libnds/include/nds/arm9/video.h:
-D:/devkitPro/calico/include/calico/nds/lcd.h:
-D:/devkitPro/calico/include/calico/gba/lcd.h:
-D:/devkitPro/calico/include/calico/nds/arm9/vram.h:
-D:/devkitPro/libnds/include/nds/arm9/cache.h:
-D:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
-D:/devkitPro/libnds/include/nds/arm9/math.h:
-D:/devkitPro/libnds/include/nds/arm9/dynamicArray.h:
+ D:/devkitPro/projects/nds/prototype/build/font_si.h \
+ D:/devkitPro/projects/nds/prototype/build/font_16x16.h \
+ D:/devkitPro/projects/nds/prototype/source/uvcoord_font_si.h \
+ D:/devkitPro/projects/nds/prototype/source/uvcoord_font_16x16.h
+D:/devkitPro/projects/nds/prototype/source/GLFontManager.h:
 D:/devkitPro/libnds/include/nds.h:
 D:/devkitPro/calico/include/calico.h:
+D:/devkitPro/calico/include/calico/types.h:
 D:/devkitPro/calico/include/calico/arm/psr.h:
 D:/devkitPro/calico/include/calico/arm/cp15.h:
 D:/devkitPro/calico/include/calico/system/sysclock.h:
+D:/devkitPro/calico/include/calico/nds/mm.h:
 D:/devkitPro/calico/include/calico/nds/mm_env.h:
+D:/devkitPro/calico/include/calico/nds/io.h:
 D:/devkitPro/calico/include/calico/dev/dldi_defs.h:
 D:/devkitPro/calico/include/calico/arm/common.h:
 D:/devkitPro/calico/include/calico/arm/cache.h:
@@ -161,6 +147,8 @@ D:/devkitPro/calico/include/calico/nds/scfg.h:
 D:/devkitPro/calico/include/calico/nds/bios.h:
 D:/devkitPro/calico/include/calico/nds/timer.h:
 D:/devkitPro/calico/include/calico/gba/timer.h:
+D:/devkitPro/calico/include/calico/nds/dma.h:
+D:/devkitPro/calico/include/calico/gba/dma.h:
 D:/devkitPro/calico/include/calico/nds/ndma.h:
 D:/devkitPro/calico/include/calico/nds/env.h:
 D:/devkitPro/calico/include/calico/nds/tlnc.h:
@@ -169,6 +157,8 @@ D:/devkitPro/calico/include/calico/nds/smutex.h:
 D:/devkitPro/calico/include/calico/nds/keypad.h:
 D:/devkitPro/calico/include/calico/gba/keypad.h:
 D:/devkitPro/calico/include/calico/nds/touch.h:
+D:/devkitPro/calico/include/calico/nds/lcd.h:
+D:/devkitPro/calico/include/calico/gba/lcd.h:
 D:/devkitPro/calico/include/calico/nds/pm.h:
 D:/devkitPro/calico/include/calico/dev/blk.h:
 D:/devkitPro/calico/include/calico/dev/disc_io.h:
@@ -184,10 +174,12 @@ D:/devkitPro/calico/include/calico/nds/arm9/sound.h:
 D:/devkitPro/calico/include/calico/nds/sound.h:
 D:/devkitPro/calico/include/calico/nds/arm9/mic.h:
 D:/devkitPro/calico/include/calico/nds/mic.h:
+D:/devkitPro/calico/include/calico/nds/arm9/vram.h:
 D:/devkitPro/calico/include/calico/nds/arm9/ovl.h:
 D:/devkitPro/libnds/include/nds/libversion.h:
 D:/devkitPro/libnds/include/nds/ndstypes.h:
 D:/devkitPro/libnds/include/nds/bios.h:
+D:/devkitPro/libnds/include/nds/ndstypes.h:
 D:/devkitPro/libnds/include/nds/card.h:
 D:/devkitPro/libnds/include/nds/ndstypes.h:
 D:/devkitPro/libnds/include/nds/debug.h:
@@ -203,8 +195,16 @@ D:/devkitPro/libnds/include/nds/sha1.h:
 D:/devkitPro/libnds/include/nds/arm9/dynamicArray.h:
 D:/devkitPro/libnds/include/nds/arm9/linkedlist.h:
 D:/devkitPro/libnds/include/nds/arm9/background.h:
+D:/devkitPro/libnds/include/nds/arm9/video.h:
+D:/devkitPro/libnds/include/nds/arm9/sassert.h:
 D:/devkitPro/libnds/include/nds/memory.h:
+D:/devkitPro/libnds/include/nds/dma.h:
 D:/devkitPro/libnds/include/nds/arm9/boxtest.h:
+D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
+D:/devkitPro/libnds/include/nds/arm9/cache.h:
+D:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
+D:/devkitPro/libnds/include/nds/arm9/math.h:
+D:/devkitPro/libnds/include/nds/arm9/dynamicArray.h:
 D:/devkitPro/libnds/include/nds/arm9/cache.h:
 D:/devkitPro/libnds/include/nds/arm9/console.h:
 D:/devkitPro/libnds/include/nds/arm9/background.h:
@@ -233,10 +233,9 @@ D:/devkitPro/libnds/include/nds/arm9/sprite.h:
 D:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
 D:/devkitPro/libnds/include/nds/arm9/video.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
-D:/devkitPro/projects/nds/prototype/source/Character.h:
-D:/devkitPro/projects/nds/prototype/source/Player.h:
-D:/devkitPro/projects/nds/prototype/source/Door.h:
-D:/devkitPro/projects/nds/prototype/source/Game.h:
+D:/devkitPro/libnds/include/gl2d.h:
 D:/devkitPro/projects/nds/prototype/source/GLFont.h:
-D:/devkitPro/projects/nds/prototype/source/GLFontManager.h:
-D:/devkitPro/projects/nds/prototype/build/clienttest16.h:
+D:/devkitPro/projects/nds/prototype/build/font_si.h:
+D:/devkitPro/projects/nds/prototype/build/font_16x16.h:
+D:/devkitPro/projects/nds/prototype/source/uvcoord_font_si.h:
+D:/devkitPro/projects/nds/prototype/source/uvcoord_font_16x16.h:

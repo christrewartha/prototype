@@ -1,24 +1,24 @@
 
-//{{BLOCK(zero)
+//{{BLOCK(font_16x16)
 
 //======================================================================
 //
-//	zero, 128x256@8, 
+//	font_16x16, 64x512@8, 
 //	+ bitmap not compressed
 //	Total size: 32768 = 32768
 //
-//	Time-stamp: 2025-02-13, 19:39:53
+//	Time-stamp: 2025-02-13, 19:39:51
 //	Exported by Cearn's GBA Image Transmogrifier, v0.9.2
 //	( http://www.coranac.com/projects/#grit )
 //
 //======================================================================
 
-#ifndef GRIT_ZERO_H
-#define GRIT_ZERO_H
+#ifndef GRIT_FONT_16X16_H
+#define GRIT_FONT_16X16_H
 
-#define zeroBitmapLen 32768
-extern const unsigned int zeroBitmap[8192];
+#define font_16x16BitmapLen 32768
+extern const unsigned int font_16x16Bitmap[8192];
 
-#endif // GRIT_ZERO_H
+#endif // GRIT_FONT_16X16_H
 
-//}}BLOCK(zero)
+//}}BLOCK(font_16x16)

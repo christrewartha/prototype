@@ -130,17 +130,17 @@ private:
 
         if(round_complete) {
             round++;
+            currentDoorIndex = 0;
             InitRound();
             Player::getInstance().resetDoorsCollected();
-            currentDoorIndex = 0;
         }
 
         // Check if the player has lost all lives
         if(Player::getInstance().getPlayerLives() <= 0) {
             round = 0;
+            currentDoorIndex = 0;
             InitRound();
             Player::getInstance().resetPlayer();
-            currentDoorIndex = 0;
         }
         // Update round/level if necessary
     }
