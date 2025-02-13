@@ -22,7 +22,9 @@ public:
     bool done;
     bool is_alive;
     int time_to_leave;
-    static const int TIME_TO_LEAVE = 300;
+    static const int MAX_TIME_TO_LEAVE = 300;
+    static const int MIN_TIME_TO_LEAVE = 100;
+    static const int TIME_TO_LEAVE_DECREASE = 10;
     glImage* sprite;  // Pointer to the glImage for this character
     int character_x_margin;
     int character_y_margin;
@@ -35,7 +37,8 @@ public:
       {
         done = false;
         is_alive = true;
-        time_to_leave = TIME_TO_LEAVE;
+        time_to_leave = MAX_TIME_TO_LEAVE - (TIME_TO_LEAVE_DECREASE * Player::getInstance().getRound()); // GAMEDIFFICULTY
+        time_to_leave = time_to_leave < MIN_TIME_TO_LEAVE ? MIN_TIME_TO_LEAVE : time_to_leave;
         character_x_margin = 5;
         character_y_margin = 15;
         character_width = 50;
@@ -90,7 +93,9 @@ public:
 // Robber class (inherits from Character)
 class Robber: public Character {
 public:
-    static const int TIME_TO_SHOOT = 100;
+    static const int MAX_TIME_TO_SHOOT = 100;
+    static const int MIN_TIME_TO_SHOOT = 30; // GAMEDIFFICULTY
+    static const int TIME_TO_SHOOT_DECREASE = 5;
     int time_to_shoot;
     bool has_shot;
     Robber(int index, int x, int y, glImage* spr): Character(CharacterType::ROBBER, index, x, y, true, spr) 
@@ -101,7 +106,8 @@ public:
         character_height = 95;
 
         is_alive = true;
-        time_to_shoot = TIME_TO_SHOOT;
+        time_to_shoot = MAX_TIME_TO_SHOOT - (TIME_TO_SHOOT_DECREASE * Player::getInstance().getRound());
+        time_to_shoot = time_to_shoot < MIN_TIME_TO_SHOOT ? MIN_TIME_TO_SHOOT : time_to_shoot;
         has_shot = false;
     }
 
@@ -140,10 +146,10 @@ public:
                     yPos + character_y_margin, 
                     xPos + character_x_margin + character_width, 
                     yPos + character_y_margin + character_height, 
-                    RGB15(0, 0, 0));
+                    RGB15(0,0,0));
 
             if(has_shot) {
-                glBoxFilled(xPos + 30,yPos + 50,xPos + 50,yPos + 70,RGB15(255,0,0));
+                glBoxFilled(xPos + 30,yPos + 50,xPos + 50,yPos + 70,RGB15(255,165,0));
             }
         }
         //glSprite(x + x_margin, y + y_margin, GL_FLIP_NONE, sprite);
@@ -192,7 +198,7 @@ public:
                     yPos + character_y_margin, 
                     xPos + character_x_margin + character_width, 
                     yPos + character_y_margin + character_height, 
-                    RGB15(0, 0, 255));
+                    RGB15(85,107,47));
         }
     }
 };
@@ -202,7 +208,7 @@ class HatGuy: public Character {
 public:
     int hats;
 
-    HatGuy(int index, int x, int y, glImage* spr): Character(CharacterType::HAT_GUY, index, x, y, false, spr), hats(5) 
+    HatGuy(int index, int x, int y, glImage* spr): Character(CharacterType::HAT_GUY, index, x, y, false, spr) 
     {
         character_x_margin = 10;
         character_y_margin = 60;
@@ -210,7 +216,9 @@ public:
         character_height = 50;
 
         is_alive = true;
-    } // Start with 5 hats
+        // start with 3 to 5 hats
+        hats = 3 + rand() % 3;
+    } 
 
     void loseHat() {
         hats--;
@@ -245,7 +253,7 @@ public:
                     yPos + character_y_margin, 
                     xPos + character_x_margin + character_width, 
                     yPos + character_y_margin + character_height, 
-                    RGB15(0, 0, 255));
+                    RGB15(70,130,180));
 
             // draw the hats    
             int hat_x_margin = 25;
@@ -259,7 +267,7 @@ public:
                     yPos + hat_y_margin - (hat_height + hat_spacing) * i, 
                     xPos + hat_x_margin + hat_width, 
                     yPos + hat_y_margin - (hat_height + hat_spacing) * i + hat_height, 
-                    RGB15(255, 255, 255));
+                    RGB15(0,0,139));
             }
         }
     }

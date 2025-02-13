@@ -1,5 +1,8 @@
 #include "Game.h"
+#include "GLFontManager.h"
+#include <cstdio>
 #include "Player.h"
+
 
 
 void Game::handleShot(int x, int y) {
@@ -98,7 +101,14 @@ void Game::display() {
 
     // Display player score and lives
     // Example positions for score and lives
-    glColor(RGB15(0, 0, 0)); // Set color to black for text
+    glColor(RGB15(31, 31, 31)); // Set color to black for text
+
+    // Display round
+    char roundText[20];
+    sprintf(roundText, "%d", Player::getInstance().getRound() + 1);
+    GLFontManager::getInstance().renderText(2, 2, roundText);
+
+
     // Display score
 //    char scoreText[20];
 //    sprintf(scoreText, "Score: %d", playerScore);

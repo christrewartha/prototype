@@ -82,7 +82,7 @@ void Door::display() {
                     yPos + Y_MARGIN, 
                     xPos + X_MARGIN + DOOR_WIDTH, 
                     yPos + Y_MARGIN + DOOR_HEIGHT, 
-                    RGB15(0, 255, 0)); // Example: green for open
+                    RGB15(255,255,255)); // Example: green for open
 
         if(character) {
             character->display();
@@ -93,7 +93,7 @@ void Door::display() {
                     yPos + Y_MARGIN, 
                     xPos + X_MARGIN + DOOR_WIDTH, 
                     yPos + Y_MARGIN + DOOR_HEIGHT,
-                    RGB15(255, 0, 0)); // Example: red for closed
+                    RGB15(139,0,0)); // brown
     }
 }
 

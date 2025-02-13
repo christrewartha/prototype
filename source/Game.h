@@ -23,7 +23,7 @@ public:
 
     // Game state
     int currentDoorIndex;            // Index of the leftmost visible door
-    int round;                       // Current round number
+    
 
     int time_to_next_round;
     bool between_rounds;
@@ -31,13 +31,12 @@ public:
     Door doors[DOORS_DISPLAYED]; 
     int door_timer[DOORS_DISPLAYED];
 
-    Game(): currentDoorIndex(0), round(1) {
+    Game(): currentDoorIndex(0){
         
     }
 
     void init() {
         Player::getInstance().resetPlayer();
-        round = 0;
         InitRound();
 
     }
@@ -129,7 +128,7 @@ private:
         }
 
         if(round_complete) {
-            round++;
+            Player::getInstance().increaseRound();
             currentDoorIndex = 0;
             InitRound();
             Player::getInstance().resetDoorsCollected();
@@ -137,7 +136,6 @@ private:
 
         // Check if the player has lost all lives
         if(Player::getInstance().getPlayerLives() <= 0) {
-            round = 0;
             currentDoorIndex = 0;
             InitRound();
             Player::getInstance().resetPlayer();

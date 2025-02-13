@@ -14,6 +14,7 @@ public:
     // Player state
     int playerLives; // Player lives
     int playerScore; // Player score
+    int round;                       // Current round number
     bool doorsCollected[NUM_DOORS];  // Track which doors have been collected from
 
     // Methods to get and update player score and lives
@@ -21,6 +22,8 @@ public:
     void increasePlayerScore(int amount) { playerScore += amount; }
     int getPlayerLives() const { return playerLives; }
     void decreasePlayerLives() { playerLives--; }
+    int getRound() const { return round; }
+    void increaseRound() { round++; }
 
     bool hasDoorBeenCollected(int doorIndex) const { return doorsCollected[doorIndex]; }
     void setDoorCollected(int doorIndex, bool collected) { doorsCollected[doorIndex] = collected; }
@@ -34,10 +37,11 @@ public:
     void resetPlayer() {
         playerLives = 3;
         playerScore = 0;
+        round = 0;
         resetDoorsCollected();
     }   
 private:
-    Player() : playerLives(3), playerScore(0) {} // Private constructor
+    Player() : playerLives(3), playerScore(0), round(0) {} // Private constructor
     Player(const Player&) = delete; // Prevent copying
     Player& operator=(const Player&) = delete; // Prevent assignment
 };
