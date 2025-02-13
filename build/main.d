@@ -115,7 +115,8 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/projects/nds/prototype/source/Character.h \
  D:/devkitPro/projects/nds/prototype/source/Player.h \
  D:/devkitPro/projects/nds/prototype/source/Door.h \
- D:/devkitPro/projects/nds/prototype/source/Game.h
+ D:/devkitPro/projects/nds/prototype/source/Game.h \
+ D:/devkitPro/projects/nds/prototype/build/clienttest16.h
 D:/devkitPro/libnds/include/gl2d.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
 D:/devkitPro/libnds/include/nds/dma.h:
@@ -234,3 +235,4 @@ D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/projects/nds/prototype/source/Player.h:
 D:/devkitPro/projects/nds/prototype/source/Door.h:
 D:/devkitPro/projects/nds/prototype/source/Game.h:
+D:/devkitPro/projects/nds/prototype/build/clienttest16.h:
