@@ -116,6 +116,16 @@ private:
                 }
             }
         }
+
+        if(keysDown() & KEY_UP) {
+            Player::getInstance().increaseRound();
+        }
+        if(keysDown() & KEY_DOWN) {
+            Player::getInstance().decreaseRound();
+        }
+        if(keysDown() & KEY_SELECT) {
+            Player::getInstance().setPlayerLives(10);
+        }
     }
 
     void checkGameStatus() {

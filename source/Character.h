@@ -4,6 +4,7 @@
 #include <nds.h>
 #include <gl2d.h>
 #include "Player.h"
+#include "AudioManager.h"
 
 // Define character types as an enum for clarity
 enum class CharacterType {
@@ -123,6 +124,7 @@ public:
         if(!has_shot && is_alive) {
             has_shot = true;    
             Player::getInstance().decreasePlayerLives();
+            AudioManager::getInstance().playGunshot();
         }
     }
 
@@ -188,8 +190,10 @@ public:
     void depositMoney() {
         // Increase player's score
         // Play sound effect/animation
-        Player::getInstance().increasePlayerScore(100);
-        Player::getInstance().setDoorCollected(door_index, true);
+        if(is_alive) {
+            Player::getInstance().increasePlayerScore(100);
+            Player::getInstance().setDoorCollected(door_index, true);
+        }
     }
 
     void switch_to_robber() {
@@ -262,7 +266,7 @@ public:
     }
 
     void depositMoney() {
-        if(hats == 0) {
+        if(hats == 0 && is_alive) {
             // Increase player's score
             // Play sound effect/animation
             Player::getInstance().increasePlayerScore(100);

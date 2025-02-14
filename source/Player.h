@@ -21,9 +21,11 @@ public:
     int getPlayerScore() const { return playerScore; }
     void increasePlayerScore(int amount) { playerScore += amount; }
     int getPlayerLives() const { return playerLives; }
+    void setPlayerLives(int lives) { playerLives = lives; }
     void decreasePlayerLives() { playerLives--; }
     int getRound() const { return round; }
     void increaseRound() { round++; }
+    void decreaseRound() { round--; round = round < 0 ? 0 : round;}
 
     bool hasDoorBeenCollected(int doorIndex) const { return doorsCollected[doorIndex]; }
     void setDoorCollected(int doorIndex, bool collected) { doorsCollected[doorIndex] = collected; }

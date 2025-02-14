@@ -2,6 +2,7 @@
 #include "GLFontManager.h"
 #include <cstdio>
 #include "Player.h"
+#include "AudioManager.h"
 
 
 
@@ -25,6 +26,7 @@ void Game::handleShot(int x, int y) {
             break; // Exit the loop after handling the shot
         }
     }
+    AudioManager::getInstance().playGunshot();
 }
 
 bool Game::doorIsDisplayed(int index) {

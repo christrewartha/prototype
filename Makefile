@@ -26,6 +26,7 @@ SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=	include
 GRAPHICS	:=	gfx
+MUSIC       :=  maxmod_data
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -44,7 +45,7 @@ LDFLAGS	=	-specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:= -lnds9
+LIBS	:= -lmm9 -lnds9
 
 
 #---------------------------------------------------------------------------------
@@ -73,9 +74,11 @@ export DEPSDIR	:=	$(CURDIR)/$(BUILD)
 CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 CPPFILES	:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.cpp)))
 SFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.s)))
-BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*)))
+BINFILES	:=	$(foreach dir,$(DATA),$(notdir $(wildcard $(dir)/*.*))) soundbank.bin
 BMPFILES	:=	$(foreach dir,$(GRAPHICS),$(notdir $(wildcard $(dir)/*.bmp)))
 PNGFILES	:=	$(foreach dir,$(GRAPHICS),$(notdir $(wildcard $(dir)/*.png)))
+
+export AUDIOFILES	:=	$(foreach dir,$(notdir $(wildcard $(MUSIC)/*.*)),$(CURDIR)/$(MUSIC)/$(dir))
 
 #---------------------------------------------------------------------------------
 # use CXX for linking C++ projects, CC for standard C
@@ -135,6 +138,13 @@ $(OUTPUT).elf	:	$(OFILES)
 # for each extension used in the data directories
 #---------------------------------------------------------------------------------
 
+#---------------------------------------------------------------------------------
+# rule to build soundbank from music files
+#---------------------------------------------------------------------------------
+soundbank.bin soundbank.h : $(AUDIOFILES)
+#---------------------------------------------------------------------------------
+	@mmutil $^ -d -osoundbank.bin -hsoundbank.h
+	
 #---------------------------------------------------------------------------------
 %.bin.o %_bin.h : %.bin
 #---------------------------------------------------------------------------------

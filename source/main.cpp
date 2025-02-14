@@ -8,7 +8,7 @@
 #include "Game.h"
 #include "GLFont.h" // Include the new Font class
 #include "GLFontManager.h" // Include the GLFontManager class
-
+#include "AudioManager.h"
 
 #include "clienttest16.h"
 glImage  Client[1];
@@ -35,9 +35,12 @@ public:
 
         // Initialize the font manager
         GLFontManager::getInstance().init();
+        AudioManager::getInstance().init();
 
         // Initialize the game
         game.init();
+
+        AudioManager::getInstance().startMusic();
 
 /*
         int ClientTextureID =
@@ -63,16 +66,28 @@ public:
         srand(time(NULL));
 
 		bool running = true;
+        bool paused = false;    
         while (running) {
             frame++;
 
             scanKeys();
 			ProcessTouchInput();
 
-			if(keysDown() & KEY_TOUCH) {	
-				game.handleShot(touchX, touchY);
-			}
-			game.update();
+            if(keysDown() & KEY_START) {
+                paused = !paused;
+                if(paused) {
+                    AudioManager::getInstance().pauseMusic();
+                } else {
+                    AudioManager::getInstance().resumeMusic();
+                }
+            }
+
+            if(!paused) {
+                if(keysDown() & KEY_TOUCH) {	
+                    game.handleShot(touchX, touchY);
+                }
+                game.update();
+            }
 
             glBegin2D();
 
@@ -84,6 +99,10 @@ public:
 						touchY + 2, 
 						RGB15(255, 255, 0));
 
+            if(paused)
+            {
+                GLFontManager::getInstance().renderTextCentered(0, 96, "PAUSED");
+            }
             // Use GLFontManager to render text
             //GLFontManager::getInstance().renderTextCentered(0, 100, "FONTS BY ADIGUN A. POLACK");
             //GLFontManager::getInstance().renderTextCentered(0, 120, "CODE BY RELMINATOR");
@@ -93,11 +112,6 @@ public:
 
             glEnd2D();
 
-			
-            if(keysDown() & KEY_START)
-            {
-				running = false;
-            }
             glFlush(0);
             swiWaitForVBlank();
         }

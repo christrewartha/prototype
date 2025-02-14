@@ -114,6 +114,11 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
  D:/devkitPro/projects/nds/prototype/source/Character.h \
  D:/devkitPro/projects/nds/prototype/source/Player.h \
+ D:/devkitPro/projects/nds/prototype/source/AudioManager.h \
+ D:/devkitPro/libnds/include/maxmod9.h \
+ D:/devkitPro/libnds/include/mm_types.h \
+ D:/devkitPro/projects/nds/prototype/build/soundbank.h \
+ D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h \
  D:/devkitPro/projects/nds/prototype/source/Door.h \
  D:/devkitPro/projects/nds/prototype/source/Game.h \
  D:/devkitPro/projects/nds/prototype/source/GLFont.h \
@@ -235,6 +240,11 @@ D:/devkitPro/libnds/include/nds/arm9/video.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
 D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/projects/nds/prototype/source/Player.h:
+D:/devkitPro/projects/nds/prototype/source/AudioManager.h:
+D:/devkitPro/libnds/include/maxmod9.h:
+D:/devkitPro/libnds/include/mm_types.h:
+D:/devkitPro/projects/nds/prototype/build/soundbank.h:
+D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h:
 D:/devkitPro/projects/nds/prototype/source/Door.h:
 D:/devkitPro/projects/nds/prototype/source/Game.h:
 D:/devkitPro/projects/nds/prototype/source/GLFont.h:
