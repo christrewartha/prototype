@@ -21,6 +21,7 @@ public:
     bool isAggressive;
     bool done;
     bool is_alive;
+    bool make_switch_to_robber;
     int time_to_leave;
     static const int MAX_TIME_TO_LEAVE = 300;
     static const int MIN_TIME_TO_LEAVE = 100;
@@ -43,6 +44,7 @@ public:
         character_y_margin = 15;
         character_width = 50;
         character_height = 95;
+        make_switch_to_robber = false;
       } 
 
     virtual ~Character() {}
@@ -74,6 +76,10 @@ public:
 
     virtual bool is_done() {
         return done;
+    }
+
+    virtual bool should_switch_to_robber() {
+        return make_switch_to_robber;
     }
 
     // Declare the handleShot function
@@ -159,12 +165,22 @@ public:
 // Client class (inherits from Character)
 class Client: public Character {
 public:
+    bool is_robber_switch;
+    int time_to_switch;
+    static const int MAX_TIME_TO_SWITCH = 100;
+    static const int MIN_TIME_TO_SWITCH = 30; // GAMEDIFFICULTY
+    static const int TIME_TO_SWITCH_DECREASE = 5;
+
     Client(int index, int x, int y, glImage* spr): Character(CharacterType::CLIENT, index, x, y, false, spr) 
     {   
         character_x_margin = 5;
         character_y_margin = 15;
         character_width = 50;
         character_height = 95;
+
+        is_robber_switch = rand() % 2 == 0;
+        time_to_switch = MAX_TIME_TO_SWITCH - (TIME_TO_SWITCH_DECREASE * Player::getInstance().getRound());
+        time_to_switch = time_to_switch < MIN_TIME_TO_SWITCH ? MIN_TIME_TO_SWITCH : time_to_switch; 
 
         is_alive = true;
     }
@@ -177,12 +193,20 @@ public:
     }
 
     void switch_to_robber() {
-        // Transform into a Robber (change type, sprite, isAggressive)
+        make_switch_to_robber = true;
     }
 
     void update() override {
         // Client behavior (e.g., deposit money after a delay)
         Character::update();
+
+        // switch to robber after a delay
+        if(is_robber_switch) {
+            time_to_switch--;
+            if(time_to_switch <= 0) {
+                switch_to_robber();
+            }
+        }
     }
 
     void get_shot() override {
