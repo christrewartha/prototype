@@ -26,7 +26,7 @@ public:
         mmInitDefaultMem((mm_addr)soundbank_bin);
 	
         // load the module
-    	mmLoad( MOD_COWBOYS_727 );
+    	mmLoad( MOD_COWBOYS_HELL );
         // load sound effects
         mmLoadEffect( SFX_BOOM );
 
@@ -40,7 +40,7 @@ public:
     }
 
     void startMusic() {
-        mmStart( MOD_COWBOYS_727, MM_PLAY_LOOP );
+        mmStart( MOD_COWBOYS_HELL, MM_PLAY_LOOP );
     }
 
     void pauseMusic() {
