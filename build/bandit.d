@@ -1,0 +1,1 @@
+bandit.o: bandit.s

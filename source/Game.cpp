@@ -3,6 +3,7 @@
 #include <cstdio>
 #include "Player.h"
 #include "AudioManager.h"
+#include "SpriteManager.h"
 
 
 
@@ -110,7 +111,24 @@ void Game::display() {
     sprintf(roundText, "%d", Player::getInstance().getRound() + 1);
     GLFontManager::getInstance().renderText(2, 2, roundText);
 
+    if(paused)
+    {
+        GLFontManager::getInstance().renderTextCentered(0, 96, "PAUSED");
+    }
 
+    SpriteManager::getInstance().draw();
+
+
+    if(shot_display_timer > 0) {    
+        glBoxFilled(touchX - 2, 
+                    touchY - 2, 
+                    touchX + 2, 
+                    touchY + 2, 
+                    RGB15(255, 255, 0));
+        shot_display_timer--;
+    }
+
+                    
     // Display score
 //    char scoreText[20];
 //    sprintf(scoreText, "Score: %d", playerScore);

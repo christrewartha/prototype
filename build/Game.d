@@ -1,7 +1,5 @@
 Game.o: D:/devkitPro/projects/nds/prototype/source/Game.cpp \
  D:/devkitPro/projects/nds/prototype/source/Game.h \
- D:/devkitPro/projects/nds/prototype/source/Door.h \
- D:/devkitPro/projects/nds/prototype/source/Character.h \
  D:/devkitPro/libnds/include/nds.h D:/devkitPro/calico/include/calico.h \
  D:/devkitPro/calico/include/calico/types.h \
  D:/devkitPro/calico/include/calico/arm/psr.h \
@@ -115,6 +113,8 @@ Game.o: D:/devkitPro/projects/nds/prototype/source/Game.cpp \
  D:/devkitPro/libnds/include/nds/arm9/video.h \
  D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
  D:/devkitPro/libnds/include/gl2d.h \
+ D:/devkitPro/projects/nds/prototype/source/Door.h \
+ D:/devkitPro/projects/nds/prototype/source/Character.h \
  D:/devkitPro/projects/nds/prototype/source/Player.h \
  D:/devkitPro/projects/nds/prototype/source/AudioManager.h \
  D:/devkitPro/libnds/include/maxmod9.h \
@@ -122,10 +122,12 @@ Game.o: D:/devkitPro/projects/nds/prototype/source/Game.cpp \
  D:/devkitPro/projects/nds/prototype/build/soundbank.h \
  D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h \
  D:/devkitPro/projects/nds/prototype/source/GLFontManager.h \
- D:/devkitPro/projects/nds/prototype/source/GLFont.h
+ D:/devkitPro/projects/nds/prototype/source/GLFont.h \
+ D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
+ D:/devkitPro/projects/nds/prototype/build/clienttest16.h \
+ D:/devkitPro/projects/nds/prototype/build/shuttle.h \
+ D:/devkitPro/projects/nds/prototype/build/bandit.h
 D:/devkitPro/projects/nds/prototype/source/Game.h:
-D:/devkitPro/projects/nds/prototype/source/Door.h:
-D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/libnds/include/nds.h:
 D:/devkitPro/calico/include/calico.h:
 D:/devkitPro/calico/include/calico/types.h:
@@ -240,6 +242,8 @@ D:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
 D:/devkitPro/libnds/include/nds/arm9/video.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
 D:/devkitPro/libnds/include/gl2d.h:
+D:/devkitPro/projects/nds/prototype/source/Door.h:
+D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/projects/nds/prototype/source/Player.h:
 D:/devkitPro/projects/nds/prototype/source/AudioManager.h:
 D:/devkitPro/libnds/include/maxmod9.h:
@@ -248,3 +252,7 @@ D:/devkitPro/projects/nds/prototype/build/soundbank.h:
 D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h:
 D:/devkitPro/projects/nds/prototype/source/GLFontManager.h:
 D:/devkitPro/projects/nds/prototype/source/GLFont.h:
+D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
+D:/devkitPro/projects/nds/prototype/build/clienttest16.h:
+D:/devkitPro/projects/nds/prototype/build/shuttle.h:
+D:/devkitPro/projects/nds/prototype/build/bandit.h:

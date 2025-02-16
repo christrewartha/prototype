@@ -1,6 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <nds.h>
+#include <gl2d.h>
+
 #include "Door.h" // Include the Door class
 #include "Character.h" // Include the Character class
 #include "Player.h" // Include the Player class
@@ -56,6 +59,25 @@ public:
 
     void update() {
         
+        if(keysDown() & KEY_START) {
+            paused = !paused;
+            if(paused) {
+                AudioManager::getInstance().pauseMusic();
+            } else {
+                AudioManager::getInstance().resumeMusic();
+            }
+        }
+
+        if(paused)
+        {
+            return;
+        }
+
+        ProcessTouchInput();
+        if(keysDown() & KEY_TOUCH) {	
+            handleShot(touchX, touchY);
+        }
+                
         bool all_doors_done = true;
         for(int i = 0; i < DOORS_DISPLAYED; i++) 
         {
@@ -100,7 +122,30 @@ public:
 
     bool doorIsDisplayed(int index); // Declare the doorIsDisplayed method
 
+    bool isGameOver() {return game_over;}
+
 private:
+	int touchX = 0;
+	int touchY = 0;
+    bool paused = false;
+    int shot_display_timer = 0;
+    bool game_over = false;
+
+	void ProcessTouchInput() {
+
+		touchPosition touchXY;
+
+		if( touchRead(&touchXY) ) 
+		{
+			if(touchXY.px > 0 && touchXY.py > 0) 
+			{
+				touchX = touchXY.px;
+				touchY = touchXY.py;
+                shot_display_timer = 10;
+			}
+		}
+	}
+
     void handleInput() {
         if(between_rounds) {
             if(keysDown() & KEY_LEFT) {
@@ -126,6 +171,8 @@ private:
         if(keysDown() & KEY_SELECT) {
             Player::getInstance().setPlayerLives(10);
         }
+        
+
     }
 
     void checkGameStatus() {
@@ -146,9 +193,7 @@ private:
 
         // Check if the player has lost all lives
         if(Player::getInstance().getPlayerLives() <= 0) {
-            currentDoorIndex = 0;
-            InitRound();
-            Player::getInstance().resetPlayer();
+            game_over = true;
         }
         // Update round/level if necessary
     }

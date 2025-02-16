@@ -112,6 +112,7 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/libnds/include/nds/arm9/trig_lut.h \
  D:/devkitPro/libnds/include/nds/arm9/video.h \
  D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
+ D:/devkitPro/projects/nds/prototype/source/GameState.h \
  D:/devkitPro/projects/nds/prototype/source/Character.h \
  D:/devkitPro/projects/nds/prototype/source/Player.h \
  D:/devkitPro/projects/nds/prototype/source/AudioManager.h \
@@ -121,9 +122,17 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h \
  D:/devkitPro/projects/nds/prototype/source/Door.h \
  D:/devkitPro/projects/nds/prototype/source/Game.h \
- D:/devkitPro/projects/nds/prototype/source/GLFont.h \
+ D:/devkitPro/projects/nds/prototype/source/CompanyLogo.h \
  D:/devkitPro/projects/nds/prototype/source/GLFontManager.h \
- D:/devkitPro/projects/nds/prototype/build/clienttest16.h
+ D:/devkitPro/projects/nds/prototype/source/GLFont.h \
+ D:/devkitPro/projects/nds/prototype/source/SplashScreen.h \
+ D:/devkitPro/projects/nds/prototype/source/MainMenu.h \
+ D:/devkitPro/projects/nds/prototype/source/GameOverScreen.h \
+ D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h \
+ D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
+ D:/devkitPro/projects/nds/prototype/build/clienttest16.h \
+ D:/devkitPro/projects/nds/prototype/build/shuttle.h \
+ D:/devkitPro/projects/nds/prototype/build/bandit.h
 D:/devkitPro/libnds/include/gl2d.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
 D:/devkitPro/libnds/include/nds/dma.h:
@@ -238,6 +247,7 @@ D:/devkitPro/libnds/include/nds/arm9/sprite.h:
 D:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
 D:/devkitPro/libnds/include/nds/arm9/video.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
+D:/devkitPro/projects/nds/prototype/source/GameState.h:
 D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/projects/nds/prototype/source/Player.h:
 D:/devkitPro/projects/nds/prototype/source/AudioManager.h:
@@ -247,6 +257,14 @@ D:/devkitPro/projects/nds/prototype/build/soundbank.h:
 D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h:
 D:/devkitPro/projects/nds/prototype/source/Door.h:
 D:/devkitPro/projects/nds/prototype/source/Game.h:
-D:/devkitPro/projects/nds/prototype/source/GLFont.h:
+D:/devkitPro/projects/nds/prototype/source/CompanyLogo.h:
 D:/devkitPro/projects/nds/prototype/source/GLFontManager.h:
+D:/devkitPro/projects/nds/prototype/source/GLFont.h:
+D:/devkitPro/projects/nds/prototype/source/SplashScreen.h:
+D:/devkitPro/projects/nds/prototype/source/MainMenu.h:
+D:/devkitPro/projects/nds/prototype/source/GameOverScreen.h:
+D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h:
+D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
 D:/devkitPro/projects/nds/prototype/build/clienttest16.h:
+D:/devkitPro/projects/nds/prototype/build/shuttle.h:
+D:/devkitPro/projects/nds/prototype/build/bandit.h:
