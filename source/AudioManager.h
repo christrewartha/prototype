@@ -27,6 +27,7 @@ public:
 	
         // load the module
     	mmLoad( MOD_COWBOYS_HELL );
+        mmLoad( MOD_ANTICIPATION );
         // load sound effects
         mmLoadEffect( SFX_BOOM );
 
@@ -39,8 +40,32 @@ public:
         };
     }
 
-    void startMusic() {
-        mmStart( MOD_COWBOYS_HELL, MM_PLAY_LOOP );
+    void loadMenuMusic(const char* filename) {
+        mmLoad(MOD_ANTICIPATION);
+    }
+
+    void UnloadMenuMusic() {
+        mmUnload(MOD_ANTICIPATION);
+    }
+
+    void loadGameMusic(const char* filename) {
+        mmLoad(MOD_COWBOYS_HELL);
+    }
+
+    void UnloadGameMusic() {
+        mmUnload(MOD_COWBOYS_HELL);
+    }
+
+    void startMenuMusic() {
+        if(musicEnabled) {
+            mmStart( MOD_ANTICIPATION, MM_PLAY_LOOP );
+        }
+    }
+
+    void startGameMusic() {
+        if(musicEnabled) {
+            mmStart( MOD_COWBOYS_HELL, MM_PLAY_LOOP );
+        }
     }
 
     void pauseMusic() {
@@ -80,8 +105,16 @@ public:
         mmEffectEx(&boom);
     }
 
+    void toggleMusic() {
+        musicEnabled = !musicEnabled;
+    }
+
+    bool isMusicEnabled() {
+        return musicEnabled;
+    }
 private:
 
+    bool musicEnabled = true;
     mm_sound_effect boom;
 
     // Private constructor to prevent instantiation

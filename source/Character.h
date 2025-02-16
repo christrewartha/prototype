@@ -285,7 +285,7 @@ public:
 
             // draw the hats    
             int hat_x_margin = 25;
-            int hat_y_margin = 60;
+            int hat_y_margin = 50;
             int hat_width = 10;
             int hat_height = 10;
             int hat_spacing = 3;    

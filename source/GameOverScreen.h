@@ -2,6 +2,7 @@
 #define GAMEOVERSCREEN_H
 
 #include <nds.h>
+#include <nds/arm9/input.h>
 #include <stdio.h>
 #include "GLFontManager.h"
 
@@ -9,9 +10,9 @@ class GameOverScreen {
 public:
     GameOverScreen() : selectedOption(0) {
         // Initialize menu options
-        menuOptions[0] = "Restart Game";
-        menuOptions[1] = "Main Menu";
-        menuOptions[2] = "Exit";
+        menuOptions[0] = "RESTART";
+        menuOptions[1] = "MAIN MENU";
+        menuOptions[2] = "EXIT";
     }
 
     void init() {

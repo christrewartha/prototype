@@ -106,15 +106,17 @@ void Game::display() {
     // Example positions for score and lives
     glColor(RGB15(31, 31, 31)); // Set color to black for text
 
+    if(display_round_number_timer > 0) {
+        glBoxFilled(10, 85, 246, 125, RGB15(0, 0, 0));
+        char roundText[20];
+        sprintf(roundText, "ROUND %d", Player::getInstance().getRound() + 1);
+        GLFontManager::getInstance().renderTextCentered(0, 96, roundText, true);
+    }
+ 
     // Display round
     char roundText[20];
     sprintf(roundText, "%d", Player::getInstance().getRound() + 1);
     GLFontManager::getInstance().renderText(2, 2, roundText);
-
-    if(paused)
-    {
-        GLFontManager::getInstance().renderTextCentered(0, 96, "PAUSED");
-    }
 
     SpriteManager::getInstance().draw();
 

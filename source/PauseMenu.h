@@ -1,5 +1,5 @@
-#ifndef MAINMENU_H
-#define MAINMENU_H
+#ifndef PAUSEMENU_H
+#define PAUSEMENU_H
 
 #include <nds.h>
 #include <nds/arm9/input.h>
@@ -7,20 +7,20 @@
 #include "GLFontManager.h"
 #include "AudioManager.h"
 
-class MainMenu {
+class PauseMenu {
 public:
-    MainMenu() : selectedOption(0) {
+    PauseMenu() : selectedOption(0) {
         // Initialize menu options
-        menuOptions[0] = "START GAME";
-        menuOptions[1] = "HIGH SCORES";
+        menuOptions[0] = "RESUME GAME";
+        menuOptions[1] = "MAIN MENU";
         menuOptions[2] = "DISABLE MUSIC";
         menuOptions[3] = "EXIT";
     }
 
     void init() {
         selectedOption = 0;
-        startGame = false;
-        highScores = false;
+        resumeGame = false;
+        mainMenu = false;
         exit = false;
     }
 
@@ -40,10 +40,10 @@ public:
         if (keys & KEY_A) {
             // Handle selection
             if (selectedOption == 0) {
-                startGame = true;
+                resumeGame = true;
             } else if (selectedOption == 1) {
                 // View High Scores
-                highScores = true;
+                mainMenu = true;
             } else if (selectedOption == 2) {
                 // Toggle Music
                 AudioManager::getInstance().toggleMusic();
@@ -63,7 +63,7 @@ public:
 
     void render() {
         glColor(RGB15(31, 31, 31));
-        GLFontManager::getInstance().renderTextCentered(0, 25, "MAIN MENU", true);
+        GLFontManager::getInstance().renderTextCentered(0, 25, "PAUSE MENU", true);
         if(selectedOption == 0) 
             glColor(RGB15(31, 31, 31));
         else
@@ -86,12 +86,12 @@ public:
         GLFontManager::getInstance().renderTextCentered(0, 150, menuOptions[3]);
     }
 
-    bool isStartGame() {
-        return startGame;
+    bool isResumeGame() {
+        return resumeGame;
     }
 
-    bool isHighScores() {
-        return highScores;
+    bool isMainMenu() {
+        return mainMenu;
     }   
 
     bool isExit() {
@@ -102,9 +102,9 @@ private:
     static const int NUM_OPTIONS = 4; // Number of menu options
     const char* menuOptions[NUM_OPTIONS]; // Menu options
     int selectedOption; // Currently selected option
-    bool startGame = false;
-    bool highScores = false;
+    bool resumeGame = false;
+    bool mainMenu = false;
     bool exit = false;
 };
 
-#endif // MAINMENU_H 
+#endif // PAUSEMENU_H 

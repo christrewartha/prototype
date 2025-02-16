@@ -2,6 +2,8 @@
 #define GAME_H
 
 #include <nds.h>
+#include <nds/arm9/input.h>
+#include <calico/nds/touch.h>
 #include <gl2d.h>
 
 #include "Door.h" // Include the Door class
@@ -39,10 +41,13 @@ public:
     }
 
     void init() {
+        game_over = false;
         Player::getInstance().resetPlayer();
         InitRound();
-
-    }
+        time_to_next_round = TIME_TO_NEXT_ROUND;
+        display_round_number_timer = TIME_TO_NEXT_ROUND;
+   
+   }
 
     void InitRound() 
     {
@@ -54,30 +59,26 @@ public:
 
         time_to_next_round = TIME_TO_NEXT_ROUND;
         between_rounds = false;
-        
     }
 
     void update() {
         
         if(keysDown() & KEY_START) {
-            paused = !paused;
-            if(paused) {
-                AudioManager::getInstance().pauseMusic();
-            } else {
-                AudioManager::getInstance().resumeMusic();
-            }
-        }
-
-        if(paused)
-        {
-            return;
+            pausePressed = true;
         }
 
         ProcessTouchInput();
         if(keysDown() & KEY_TOUCH) {	
             handleShot(touchX, touchY);
         }
-                
+
+        if(display_round_number_timer > 0) {
+            display_round_number_timer--;
+
+            return;
+        }   
+
+
         bool all_doors_done = true;
         for(int i = 0; i < DOORS_DISPLAYED; i++) 
         {
@@ -124,12 +125,16 @@ public:
 
     bool isGameOver() {return game_over;}
 
+    bool shouldPause() {return pausePressed;}
+    void clearPause() {pausePressed = false;}
+
 private:
 	int touchX = 0;
 	int touchY = 0;
-    bool paused = false;
+    bool pausePressed = false;
     int shot_display_timer = 0;
     bool game_over = false;
+    int display_round_number_timer = 0;
 
 	void ProcessTouchInput() {
 
@@ -162,6 +167,33 @@ private:
             }
         }
 
+
+        if(keysDown() & KEY_Y) {
+            // fake a touch
+            touchX = 64;
+            touchY = 100;
+            shot_display_timer = 10;	
+            handleShot(touchX, touchY);
+        }   
+
+        if(keysDown() & KEY_X) {
+            // fake a touch
+            touchX = 128;
+            touchY = 100;
+            shot_display_timer = 10;	
+            handleShot(touchX, touchY);
+        }
+
+        if(keysDown() & KEY_A) {
+            // fake a touch
+            touchX = 192;
+            touchY = 100;
+            shot_display_timer = 10;	
+            handleShot(touchX, touchY);
+        }
+
+        
+
         if(keysDown() & KEY_UP) {
             Player::getInstance().increaseRound();
         }
@@ -189,6 +221,7 @@ private:
             currentDoorIndex = 0;
             InitRound();
             Player::getInstance().resetDoorsCollected();
+            display_round_number_timer = TIME_TO_NEXT_ROUND;
         }
 
         // Check if the player has lost all lives

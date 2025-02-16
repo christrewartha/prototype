@@ -12,12 +12,12 @@
 #include "MainMenu.h"
 #include "GameOverScreen.h"
 #include "HighScoreTable.h"
+#include "PauseMenu.h"
 #include "GLFont.h" // Include the new Font class
 #include "GLFontManager.h" // Include the GLFontManager class
 #include "AudioManager.h"
 
 #include "SpriteManager.h"
-
 
 // Ensure that all includes are above the class definition
 class App {
@@ -43,10 +43,6 @@ public:
 
         currentState = COMPANY_LOGO;
         companyLogo.init();
-
-        //currentState = GAME;
-        // Initialize the game
-        //game.init();
 
         //AudioManager::getInstance().startMusic();
 
@@ -81,6 +77,7 @@ public:
                     if(splashScreen.isFinished()) {
                         currentState = MAIN_MENU    ;
                         mainMenu.init();
+                        AudioManager::getInstance().startMenuMusic();
                     }   
                     break;
                 case MAIN_MENU:
@@ -89,6 +86,8 @@ public:
                     if(mainMenu.isStartGame()) {
                         currentState = GAME;
                         game.init();
+                        AudioManager::getInstance().stopMusic();
+                        AudioManager::getInstance().startGameMusic();
                     }
                     if(mainMenu.isHighScores()){
                         currentState = HIGH_SCORE_TABLE;
@@ -102,14 +101,37 @@ public:
                     if(game.isGameOver()) {
                         currentState = GAME_OVER;
                         gameOverScreen.init();
+                        AudioManager::getInstance().stopMusic();
+                        AudioManager::getInstance().startMenuMusic();
+                    }
+                    else if(game.shouldPause()) {
+                        currentState = PAUSE_MENU;
+                        pauseMenu.init();
+                        AudioManager::getInstance().pauseMusic();
                     }
                     break;  
+                case PAUSE_MENU:
+                    pauseMenu.update();
+                    pauseMenu.render();
+                    if(pauseMenu.isResumeGame()) {
+                        currentState = GAME;
+                        game.clearPause();
+                        AudioManager::getInstance().resumeMusic();
+                    }
+                    if(pauseMenu.isMainMenu()) {
+                        currentState = MAIN_MENU;
+                        mainMenu.init();
+                        AudioManager::getInstance().startMenuMusic();
+                    }
+                    break;
                 case GAME_OVER:
                     gameOverScreen.update();
                     gameOverScreen.render();
                     if(gameOverScreen.isRestartGame()) {
                         currentState = GAME;
                         game.init();
+                        AudioManager::getInstance().stopMusic();
+                        AudioManager::getInstance().startGameMusic();
                     }
                     if(gameOverScreen.isMainMenu()) {
                         currentState = MAIN_MENU;
@@ -145,6 +167,7 @@ private:
     MainMenu mainMenu;
     GameOverScreen gameOverScreen;
     HighScoreTable highScoreTable;
+    PauseMenu pauseMenu;
 };
 
 int main() {

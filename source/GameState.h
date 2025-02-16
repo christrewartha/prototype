@@ -7,7 +7,8 @@ enum GameState {
     MAIN_MENU,
     GAME,
     GAME_OVER,
-    HIGH_SCORE_TABLE
+    HIGH_SCORE_TABLE,
+    PAUSE_MENU
 };
 
 #endif // GAMESTATE_H 

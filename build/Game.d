@@ -112,6 +112,7 @@ Game.o: D:/devkitPro/projects/nds/prototype/source/Game.cpp \
  D:/devkitPro/libnds/include/nds/arm9/trig_lut.h \
  D:/devkitPro/libnds/include/nds/arm9/video.h \
  D:/devkitPro/libnds/include/nds/arm9/videoGL.h \
+ D:/devkitPro/libnds/include/nds/arm9/input.h \
  D:/devkitPro/libnds/include/gl2d.h \
  D:/devkitPro/projects/nds/prototype/source/Door.h \
  D:/devkitPro/projects/nds/prototype/source/Character.h \
@@ -241,6 +242,7 @@ D:/devkitPro/libnds/include/nds/arm9/sprite.h:
 D:/devkitPro/libnds/include/nds/arm9/trig_lut.h:
 D:/devkitPro/libnds/include/nds/arm9/video.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
+D:/devkitPro/libnds/include/nds/arm9/input.h:
 D:/devkitPro/libnds/include/gl2d.h:
 D:/devkitPro/projects/nds/prototype/source/Door.h:
 D:/devkitPro/projects/nds/prototype/source/Character.h:

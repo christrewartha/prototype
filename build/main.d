@@ -122,6 +122,7 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h \
  D:/devkitPro/projects/nds/prototype/source/Door.h \
  D:/devkitPro/projects/nds/prototype/source/Game.h \
+ D:/devkitPro/libnds/include/nds/arm9/input.h \
  D:/devkitPro/projects/nds/prototype/source/CompanyLogo.h \
  D:/devkitPro/projects/nds/prototype/source/GLFontManager.h \
  D:/devkitPro/projects/nds/prototype/source/GLFont.h \
@@ -129,6 +130,7 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/projects/nds/prototype/source/MainMenu.h \
  D:/devkitPro/projects/nds/prototype/source/GameOverScreen.h \
  D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h \
+ D:/devkitPro/projects/nds/prototype/source/PauseMenu.h \
  D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
  D:/devkitPro/projects/nds/prototype/build/clienttest16.h \
  D:/devkitPro/projects/nds/prototype/build/shuttle.h \
@@ -257,6 +259,7 @@ D:/devkitPro/projects/nds/prototype/build/soundbank.h:
 D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h:
 D:/devkitPro/projects/nds/prototype/source/Door.h:
 D:/devkitPro/projects/nds/prototype/source/Game.h:
+D:/devkitPro/libnds/include/nds/arm9/input.h:
 D:/devkitPro/projects/nds/prototype/source/CompanyLogo.h:
 D:/devkitPro/projects/nds/prototype/source/GLFontManager.h:
 D:/devkitPro/projects/nds/prototype/source/GLFont.h:
@@ -264,6 +267,7 @@ D:/devkitPro/projects/nds/prototype/source/SplashScreen.h:
 D:/devkitPro/projects/nds/prototype/source/MainMenu.h:
 D:/devkitPro/projects/nds/prototype/source/GameOverScreen.h:
 D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h:
+D:/devkitPro/projects/nds/prototype/source/PauseMenu.h:
 D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
 D:/devkitPro/projects/nds/prototype/build/clienttest16.h:
 D:/devkitPro/projects/nds/prototype/build/shuttle.h:
