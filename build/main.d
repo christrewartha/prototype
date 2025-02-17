@@ -120,6 +120,12 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/libnds/include/mm_types.h \
  D:/devkitPro/projects/nds/prototype/build/soundbank.h \
  D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h \
+ D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
+ D:/devkitPro/projects/nds/prototype/build/bandit.h \
+ D:/devkitPro/projects/nds/prototype/build/client1.h \
+ D:/devkitPro/projects/nds/prototype/build/client2.h \
+ D:/devkitPro/projects/nds/prototype/build/hatguy.h \
+ D:/devkitPro/projects/nds/prototype/build/door_closed.h \
  D:/devkitPro/projects/nds/prototype/source/Door.h \
  D:/devkitPro/projects/nds/prototype/source/Game.h \
  D:/devkitPro/libnds/include/nds/arm9/input.h \
@@ -130,9 +136,7 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/projects/nds/prototype/source/MainMenu.h \
  D:/devkitPro/projects/nds/prototype/source/GameOverScreen.h \
  D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h \
- D:/devkitPro/projects/nds/prototype/source/PauseMenu.h \
- D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
- D:/devkitPro/projects/nds/prototype/build/bandit.h
+ D:/devkitPro/projects/nds/prototype/source/PauseMenu.h
 D:/devkitPro/libnds/include/gl2d.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
 D:/devkitPro/libnds/include/nds/dma.h:
@@ -255,6 +259,12 @@ D:/devkitPro/libnds/include/maxmod9.h:
 D:/devkitPro/libnds/include/mm_types.h:
 D:/devkitPro/projects/nds/prototype/build/soundbank.h:
 D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h:
+D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
+D:/devkitPro/projects/nds/prototype/build/bandit.h:
+D:/devkitPro/projects/nds/prototype/build/client1.h:
+D:/devkitPro/projects/nds/prototype/build/client2.h:
+D:/devkitPro/projects/nds/prototype/build/hatguy.h:
+D:/devkitPro/projects/nds/prototype/build/door_closed.h:
 D:/devkitPro/projects/nds/prototype/source/Door.h:
 D:/devkitPro/projects/nds/prototype/source/Game.h:
 D:/devkitPro/libnds/include/nds/arm9/input.h:
@@ -266,5 +276,3 @@ D:/devkitPro/projects/nds/prototype/source/MainMenu.h:
 D:/devkitPro/projects/nds/prototype/source/GameOverScreen.h:
 D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h:
 D:/devkitPro/projects/nds/prototype/source/PauseMenu.h:
-D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
-D:/devkitPro/projects/nds/prototype/build/bandit.h:

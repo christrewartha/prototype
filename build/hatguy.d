@@ -1,0 +1,1 @@
+hatguy.o: hatguy.s

@@ -5,10 +5,10 @@
 
 class Door {
 public:
-    static const int X_MARGIN = 5;  
+    static const int X_MARGIN = 3;  
     static const int Y_MARGIN = 5;
-    static const int DOOR_WIDTH = 60;
-    static const int DOOR_HEIGHT = 120;
+    static const int DOOR_WIDTH = 64;
+    static const int DOOR_HEIGHT = 128;
     
     Door();
     void init(int index, int x, int y);

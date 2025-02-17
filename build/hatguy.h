@@ -1,28 +1,28 @@
 
-//{{BLOCK(bandit)
+//{{BLOCK(hatguy)
 
 //======================================================================
 //
-//	bandit, 64x128@4, 
+//	hatguy, 64x128@4, 
 //	+ palette 256 entries, not compressed
 //	+ bitmap not compressed
 //	Total size: 512 + 4096 = 4608
 //
-//	Time-stamp: 2025-02-17, 20:07:11
+//	Time-stamp: 2025-02-17, 20:17:28
 //	Exported by Cearn's GBA Image Transmogrifier, v0.9.2
 //	( http://www.coranac.com/projects/#grit )
 //
 //======================================================================
 
-#ifndef GRIT_BANDIT_H
-#define GRIT_BANDIT_H
+#ifndef GRIT_HATGUY_H
+#define GRIT_HATGUY_H
 
-#define banditBitmapLen 4096
-extern const unsigned int banditBitmap[1024];
+#define hatguyBitmapLen 4096
+extern const unsigned int hatguyBitmap[1024];
 
-#define banditPalLen 512
-extern const unsigned short banditPal[256];
+#define hatguyPalLen 512
+extern const unsigned short hatguyPal[256];
 
-#endif // GRIT_BANDIT_H
+#endif // GRIT_HATGUY_H
 
-//}}BLOCK(bandit)
+//}}BLOCK(hatguy)

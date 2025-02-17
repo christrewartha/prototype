@@ -119,7 +119,13 @@ Door.o: D:/devkitPro/projects/nds/prototype/source/Door.cpp \
  D:/devkitPro/libnds/include/maxmod9.h \
  D:/devkitPro/libnds/include/mm_types.h \
  D:/devkitPro/projects/nds/prototype/build/soundbank.h \
- D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h
+ D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h \
+ D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
+ D:/devkitPro/projects/nds/prototype/build/bandit.h \
+ D:/devkitPro/projects/nds/prototype/build/client1.h \
+ D:/devkitPro/projects/nds/prototype/build/client2.h \
+ D:/devkitPro/projects/nds/prototype/build/hatguy.h \
+ D:/devkitPro/projects/nds/prototype/build/door_closed.h
 D:/devkitPro/projects/nds/prototype/source/Door.h:
 D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/libnds/include/nds.h:
@@ -242,3 +248,9 @@ D:/devkitPro/libnds/include/maxmod9.h:
 D:/devkitPro/libnds/include/mm_types.h:
 D:/devkitPro/projects/nds/prototype/build/soundbank.h:
 D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h:
+D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
+D:/devkitPro/projects/nds/prototype/build/bandit.h:
+D:/devkitPro/projects/nds/prototype/build/client1.h:
+D:/devkitPro/projects/nds/prototype/build/client2.h:
+D:/devkitPro/projects/nds/prototype/build/hatguy.h:
+D:/devkitPro/projects/nds/prototype/build/door_closed.h:

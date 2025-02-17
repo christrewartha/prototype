@@ -5,6 +5,7 @@
 #include <gl2d.h>
 #include "Player.h"
 #include "AudioManager.h"
+#include "SpriteManager.h"
 
 // Define character types as an enum for clarity
 enum class CharacterType {
@@ -150,11 +151,12 @@ public:
     void display() override {
 
         if(is_alive) {
-            glBoxFilled(xPos + character_x_margin, 
-                    yPos + character_y_margin, 
-                    xPos + character_x_margin + character_width, 
-                    yPos + character_y_margin + character_height, 
-                    RGB15(0,0,0));
+            SpriteManager::getInstance().drawSprite(Sprites::ROBBER,xPos,yPos);
+            //glBoxFilled(xPos + character_x_margin, 
+            //        yPos + character_y_margin, 
+            //        xPos + character_x_margin + character_width, 
+            //        yPos + character_y_margin + character_height, 
+            //        RGB15(0,0,0));
 
             if(has_shot) {
                 glBoxFilled(xPos + 30,yPos + 50,xPos + 50,yPos + 70,RGB15(255,165,0));
@@ -167,6 +169,7 @@ public:
 // Client class (inherits from Character)
 class Client: public Character {
 public:
+    bool is_male;
     bool is_robber_switch;
     int time_to_switch;
     static const int MAX_TIME_TO_SWITCH = 100;
@@ -185,6 +188,7 @@ public:
         time_to_switch = time_to_switch < MIN_TIME_TO_SWITCH ? MIN_TIME_TO_SWITCH : time_to_switch; 
 
         is_alive = true;
+        is_male = rand() % 2 == 0;
     }
 
     void depositMoney() {
@@ -222,11 +226,16 @@ public:
 
     void display() override {
         if(is_alive) {
-            glBoxFilled(xPos + character_x_margin, 
-                    yPos + character_y_margin, 
-                    xPos + character_x_margin + character_width, 
-                    yPos + character_y_margin + character_height, 
-                    RGB15(85,107,47));
+            if(is_male) {
+                SpriteManager::getInstance().drawSprite(Sprites::CLIENT_MALE,xPos,yPos);
+            } else {
+                SpriteManager::getInstance().drawSprite(Sprites::CLIENT_FEMALE,xPos,yPos);
+            }
+            //glBoxFilled(xPos + character_x_margin, 
+            //        yPos + character_y_margin, 
+            //        xPos + character_x_margin + character_width, 
+            //        yPos + character_y_margin + character_height, 
+            //        RGB15(85,107,47));
         }
     }
 };
@@ -277,11 +286,12 @@ public:
     void display() override {
         // Draw the HatGuy sprite at the specified position
         if(is_alive) {  
-            glBoxFilled(xPos + character_x_margin, 
-                    yPos + character_y_margin, 
-                    xPos + character_x_margin + character_width, 
-                    yPos + character_y_margin + character_height, 
-                    RGB15(70,130,180));
+            SpriteManager::getInstance().drawSprite(Sprites::HATGUY,xPos,yPos);
+            //glBoxFilled(xPos + character_x_margin,    
+            //        yPos + character_y_margin, 
+            //        xPos + character_x_margin + character_width, 
+            //        yPos + character_y_margin + character_height, 
+            //        RGB15(70,130,180));
 
             // draw the hats    
             int hat_x_margin = 25;

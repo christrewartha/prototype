@@ -1,6 +1,7 @@
 #include "Door.h"
 #include <cstdlib> // For rand()
 #include <gl2d.h> // Include for drawing functions
+#include "SpriteManager.h"
 
 Door::Door() : openState(false), character(nullptr) {}
 
@@ -89,18 +90,21 @@ void Door::display() {
                     yPos + Y_MARGIN, 
                     xPos + X_MARGIN + DOOR_WIDTH, 
                     yPos + Y_MARGIN + DOOR_HEIGHT, 
-                    RGB15(255,255,255)); // Example: green for open
+                    RGB15(255,255,255));
 
         if(character) {
             character->display();
         }
     } else {
+        SpriteManager::getInstance().drawSprite(Sprites::DOOR_CLOSED,
+                                    xPos + X_MARGIN,
+                                    yPos + Y_MARGIN);
         // Draw the closed door
-        glBoxFilled(xPos + X_MARGIN, 
-                    yPos + Y_MARGIN, 
-                    xPos + X_MARGIN + DOOR_WIDTH, 
-                    yPos + Y_MARGIN + DOOR_HEIGHT,
-                    RGB15(139,0,0)); // brown
+        //glBoxFilled(xPos + X_MARGIN, 
+        //            yPos + Y_MARGIN, 
+        //            xPos + X_MARGIN + DOOR_WIDTH, 
+        //            yPos + Y_MARGIN + DOOR_HEIGHT,
+        //            RGB15(139,0,0)); // brown
     }
 }
 

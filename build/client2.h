@@ -1,28 +1,28 @@
 
-//{{BLOCK(bandit)
+//{{BLOCK(client2)
 
 //======================================================================
 //
-//	bandit, 64x128@4, 
+//	client2, 64x128@4, 
 //	+ palette 256 entries, not compressed
 //	+ bitmap not compressed
 //	Total size: 512 + 4096 = 4608
 //
-//	Time-stamp: 2025-02-17, 20:07:11
+//	Time-stamp: 2025-02-17, 20:07:12
 //	Exported by Cearn's GBA Image Transmogrifier, v0.9.2
 //	( http://www.coranac.com/projects/#grit )
 //
 //======================================================================
 
-#ifndef GRIT_BANDIT_H
-#define GRIT_BANDIT_H
+#ifndef GRIT_CLIENT2_H
+#define GRIT_CLIENT2_H
 
-#define banditBitmapLen 4096
-extern const unsigned int banditBitmap[1024];
+#define client2BitmapLen 4096
+extern const unsigned int client2Bitmap[1024];
 
-#define banditPalLen 512
-extern const unsigned short banditPal[256];
+#define client2PalLen 512
+extern const unsigned short client2Pal[256];
 
-#endif // GRIT_BANDIT_H
+#endif // GRIT_CLIENT2_H
 
-//}}BLOCK(bandit)
+//}}BLOCK(client2)

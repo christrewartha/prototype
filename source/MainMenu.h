@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "GLFontManager.h"
 #include "AudioManager.h"
+#include "SpriteManager.h"
 
 class MainMenu {
 public:
@@ -84,6 +85,8 @@ public:
         else
             glColor(RGB15(15, 15, 15));
         GLFontManager::getInstance().renderTextCentered(0, 150, menuOptions[3]);
+    
+        SpriteManager::getInstance().draw();
     }
 
     bool isStartGame() {

@@ -1,9 +1,9 @@
 
-//{{BLOCK(bandit)
+//{{BLOCK(client1)
 
 //======================================================================
 //
-//	bandit, 64x128@4, 
+//	client1, 64x128@4, 
 //	+ palette 256 entries, not compressed
 //	+ bitmap not compressed
 //	Total size: 512 + 4096 = 4608
@@ -14,15 +14,15 @@
 //
 //======================================================================
 
-#ifndef GRIT_BANDIT_H
-#define GRIT_BANDIT_H
+#ifndef GRIT_CLIENT1_H
+#define GRIT_CLIENT1_H
 
-#define banditBitmapLen 4096
-extern const unsigned int banditBitmap[1024];
+#define client1BitmapLen 4096
+extern const unsigned int client1Bitmap[1024];
 
-#define banditPalLen 512
-extern const unsigned short banditPal[256];
+#define client1PalLen 512
+extern const unsigned short client1Pal[256];
 
-#endif // GRIT_BANDIT_H
+#endif // GRIT_CLIENT1_H
 
-//}}BLOCK(bandit)
+//}}BLOCK(client1)
