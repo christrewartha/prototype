@@ -8,10 +8,10 @@
 #include "font_si.h"
 #include "font_16x16.h"
 
+
 // Texture Packer auto-generated UV coords
 #include "uvcoord_font_si.h"
 #include "uvcoord_font_16x16.h"
-
 
 // This imageset would use our texture packer generated coords so it's kinda
 // safe and easy to use

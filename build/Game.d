@@ -125,8 +125,6 @@ Game.o: D:/devkitPro/projects/nds/prototype/source/Game.cpp \
  D:/devkitPro/projects/nds/prototype/source/GLFontManager.h \
  D:/devkitPro/projects/nds/prototype/source/GLFont.h \
  D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
- D:/devkitPro/projects/nds/prototype/build/clienttest16.h \
- D:/devkitPro/projects/nds/prototype/build/shuttle.h \
  D:/devkitPro/projects/nds/prototype/build/bandit.h
 D:/devkitPro/projects/nds/prototype/source/Game.h:
 D:/devkitPro/libnds/include/nds.h:
@@ -255,6 +253,4 @@ D:/devkitPro/projects/nds/prototype/build/soundbank_bin.h:
 D:/devkitPro/projects/nds/prototype/source/GLFontManager.h:
 D:/devkitPro/projects/nds/prototype/source/GLFont.h:
 D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
-D:/devkitPro/projects/nds/prototype/build/clienttest16.h:
-D:/devkitPro/projects/nds/prototype/build/shuttle.h:
 D:/devkitPro/projects/nds/prototype/build/bandit.h:

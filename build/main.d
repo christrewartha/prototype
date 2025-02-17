@@ -132,8 +132,6 @@ main.o: D:/devkitPro/projects/nds/prototype/source/main.cpp \
  D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h \
  D:/devkitPro/projects/nds/prototype/source/PauseMenu.h \
  D:/devkitPro/projects/nds/prototype/source/SpriteManager.h \
- D:/devkitPro/projects/nds/prototype/build/clienttest16.h \
- D:/devkitPro/projects/nds/prototype/build/shuttle.h \
  D:/devkitPro/projects/nds/prototype/build/bandit.h
 D:/devkitPro/libnds/include/gl2d.h:
 D:/devkitPro/libnds/include/nds/arm9/videoGL.h:
@@ -269,6 +267,4 @@ D:/devkitPro/projects/nds/prototype/source/GameOverScreen.h:
 D:/devkitPro/projects/nds/prototype/source/HighScoreTable.h:
 D:/devkitPro/projects/nds/prototype/source/PauseMenu.h:
 D:/devkitPro/projects/nds/prototype/source/SpriteManager.h:
-D:/devkitPro/projects/nds/prototype/build/clienttest16.h:
-D:/devkitPro/projects/nds/prototype/build/shuttle.h:
 D:/devkitPro/projects/nds/prototype/build/bandit.h:
