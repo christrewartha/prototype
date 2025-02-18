@@ -68,7 +68,7 @@ void Door::update() {
     if(character) {
         character->update();
 
-        if(character->should_switch_to_robber()) {
+        if(character->should_switch_to_robber() && character->is_alive  ) {
             delete character;
             character = new Robber(index, xPos + X_MARGIN, yPos + Y_MARGIN, nullptr); // Replace nullptr with actual sprite
         }

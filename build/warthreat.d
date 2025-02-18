@@ -1,0 +1,1 @@
+warthreat.o: warthreat.s

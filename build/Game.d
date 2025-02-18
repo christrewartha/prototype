@@ -129,6 +129,8 @@ Game.o: D:/devkitPro/projects/nds/prototype/source/Game.cpp \
  D:/devkitPro/projects/nds/prototype/build/hatguy.h \
  D:/devkitPro/projects/nds/prototype/build/door_closed.h \
  D:/devkitPro/projects/nds/prototype/build/hat.h \
+ D:/devkitPro/projects/nds/prototype/build/warthreat.h \
+ D:/devkitPro/projects/nds/prototype/build/westbank.h \
  D:/devkitPro/projects/nds/prototype/source/GLFontManager.h \
  D:/devkitPro/projects/nds/prototype/source/GLFont.h
 D:/devkitPro/projects/nds/prototype/source/Game.h:
@@ -262,5 +264,7 @@ D:/devkitPro/projects/nds/prototype/build/client2.h:
 D:/devkitPro/projects/nds/prototype/build/hatguy.h:
 D:/devkitPro/projects/nds/prototype/build/door_closed.h:
 D:/devkitPro/projects/nds/prototype/build/hat.h:
+D:/devkitPro/projects/nds/prototype/build/warthreat.h:
+D:/devkitPro/projects/nds/prototype/build/westbank.h:
 D:/devkitPro/projects/nds/prototype/source/GLFontManager.h:
 D:/devkitPro/projects/nds/prototype/source/GLFont.h:

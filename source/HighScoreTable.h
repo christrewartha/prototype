@@ -27,11 +27,11 @@ class HighScoreTable {
 public:
     HighScoreTable() : selectedOption(0), doneViewing(false) {
         // Initialize some example high scores
-        highScores.push_back({"ALICE", 5, 1500});
-        highScores.push_back({"BOB", 6, 2000});
-        highScores.push_back({"CHARLIE", 3, 1200});
-        highScores.push_back({"DAVE", 1, 500});
-        highScores.push_back({"EVE", 2, 800});
+        highScores.push_back({"ALICE   ", 5, 1500});
+        highScores.push_back({"BOB     ", 6, 2000});
+        highScores.push_back({"CHARLIE ", 3, 1200});
+        highScores.push_back({"DAVE    ", 1, 500});
+        highScores.push_back({"EVE     ", 2, 800});
 
         // Sort the high scores
         std::sort(highScores.begin(), highScores.end());
@@ -39,6 +39,7 @@ public:
     }
 
     void init() {
+        doneViewing = false;
     }
 
     void addHighScore(const std::string& name, int stage, int cash) {
@@ -58,12 +59,21 @@ public:
     }
 
     void render() {
+        glBoxFilled(0, 0, 256, 192, RGB15(31, 31, 31));
+        SpriteManager::getInstance().drawSprite(Sprites::WESTBANK_LOGO, 
+                148, 
+                110,
+                RGB15(31, 31, 31),
+                true,
+                1 << 11,
+                1 << 11,
+                0);
         glColor(RGB15(31, 31, 31));
-        GLFontManager::getInstance().renderTextCentered(0, 25, "HIGH SCORES", true);
+        GLFontManager::getInstance().renderTextCentered(0, 50, "HIGH SCORES", true);
         for(int i = 0; i < (int)highScores.size(); i++) {
             char buffer[32];
             sprintf(buffer, "%s %d: %d", highScores[i].name.c_str(), highScores[i].stage, highScores[i].cash);
-            GLFontManager::getInstance().renderText(10, 50 + (i * 10), buffer);
+            GLFontManager::getInstance().renderText(15, 90 + (i * 16), buffer);
         }
     }
 

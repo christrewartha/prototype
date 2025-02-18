@@ -62,28 +62,37 @@ public:
     }
 
     void render() {
+        glBoxFilled(0, 0, 256, 192, RGB15(31, 31, 31));
+        SpriteManager::getInstance().drawSprite(Sprites::WESTBANK_LOGO, 
+                148, 
+                110,
+                RGB15(31, 31, 31),
+                true,
+                1 << 11,
+                1 << 11,
+                0);
         glColor(RGB15(31, 31, 31));
-        GLFontManager::getInstance().renderTextCentered(0, 25, "PAUSE MENU", true);
+        GLFontManager::getInstance().renderTextCentered(0, 50, "PAUSE MENU", true);
         if(selectedOption == 0) 
             glColor(RGB15(31, 31, 31));
         else
             glColor(RGB15(15, 15, 15));
-        GLFontManager::getInstance().renderTextCentered(0, 75, menuOptions[0]);
+        GLFontManager::getInstance().renderText(25, 100, menuOptions[0]);
         if(selectedOption == 1) 
             glColor(RGB15(31, 31, 31));
         else
             glColor(RGB15(15, 15, 15));
-        GLFontManager::getInstance().renderTextCentered(0, 100, menuOptions[1]);
+        GLFontManager::getInstance().renderText(25, 120, menuOptions[1]);
         if(selectedOption == 2) 
             glColor(RGB15(31, 31, 31));
         else
             glColor(RGB15(15, 15, 15));
-        GLFontManager::getInstance().renderTextCentered(0, 125, menuOptions[2]);
+        GLFontManager::getInstance().renderText(25, 140, menuOptions[2]);
         if(selectedOption == 3) 
             glColor(RGB15(31, 31, 31));
         else
             glColor(RGB15(15, 15, 15));
-        GLFontManager::getInstance().renderTextCentered(0, 150, menuOptions[3]);
+        GLFontManager::getInstance().renderText(25, 160, menuOptions[3]);
     }
 
     bool isResumeGame() {

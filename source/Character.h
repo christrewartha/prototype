@@ -159,7 +159,7 @@ public:
             //        RGB15(0,0,0));
 
             if(has_shot) {
-                glBoxFilled(xPos + 30,yPos + 50,xPos + 50,yPos + 70,RGB15(255,165,0));
+                glBoxFilled(xPos + 10,yPos + 30,xPos + 16,yPos + 36,RGB15(255,165,0));
             }
         }
         //glSprite(x + x_margin, y + y_margin, GL_FLIP_NONE, sprite);

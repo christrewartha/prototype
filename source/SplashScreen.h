@@ -4,6 +4,7 @@
 #include <nds.h>
 #include <stdio.h>
 #include "GLFontManager.h"
+#include "SpriteManager.h"
 
 class SplashScreen {
 public:
@@ -24,7 +25,8 @@ public:
     }
 
     void render() {
-        GLFontManager::getInstance().renderTextCentered(0, 96, "SPLASH SCREEN");
+        //GLFontManager::getInstance().renderTextCentered(0, 96, "SPLASH SCREEN");
+        SpriteManager::getInstance().drawSprite(Sprites::WESTBANK_LOGO, 0, 0);
     }
 
     bool isFinished() const {

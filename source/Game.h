@@ -46,7 +46,7 @@ public:
         InitRound();
         time_to_next_round = TIME_TO_NEXT_ROUND;
         display_round_number_timer = TIME_TO_NEXT_ROUND;
-   
+        pausePressed = false;
    }
 
     void InitRound() 
@@ -68,8 +68,11 @@ public:
         }
 
         ProcessTouchInput();
+
         if(keysDown() & KEY_TOUCH) {	
-            handleShot(touchX, touchY);
+            if(Player::getInstance().getPlayerLives() > 0) {
+                handleShot(touchX, touchY);
+            }
         }
 
         if(display_round_number_timer > 0) {
@@ -152,6 +155,11 @@ private:
 	}
 
     void handleInput() {
+
+        if(Player::getInstance().getPlayerLives() <= 0) {
+            return;
+        }
+
         if(between_rounds) {
             if(keysDown() & KEY_LEFT) {
                 currentDoorIndex--;
@@ -222,12 +230,14 @@ private:
             InitRound();
             Player::getInstance().resetDoorsCollected();
             display_round_number_timer = TIME_TO_NEXT_ROUND;
+
+            // Check if the player has lost all lives
+            if(Player::getInstance().getPlayerLives() <= 0) {
+                game_over = true;
+            }
         }
 
-        // Check if the player has lost all lives
-        if(Player::getInstance().getPlayerLives() <= 0) {
-            game_over = true;
-        }
+        
         // Update round/level if necessary
     }
 };

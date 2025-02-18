@@ -3,19 +3,19 @@
 
 #include <nds.h>
 #include <stdio.h>
-#include "GLFontManager.h"
+#include "SpriteManager.h"
 
 class CompanyLogo {
 public:
-    CompanyLogo() : displayTime(120), elapsedTime(0) {} // Display for 120 frames
+    CompanyLogo() : elapsedTime(0), transitionTime(120) {} // Display for 120 frames
 
     void init() {
-        displayTime = 120;
+        transitionTime = 120;
         elapsedTime = 0;
     }
 
     void update() {
-        if (elapsedTime < displayTime) {
+        if (elapsedTime < transitionTime) {
             elapsedTime++;
         } else {
             // Transition to the next state (e.g., MAIN_MENU)
@@ -24,16 +24,18 @@ public:
     }
 
     void render() {
-        GLFontManager::getInstance().renderTextCentered(0, 96, "COMPANY LOGO");
+        glBoxFilled(0, 0, 256, 192, RGB15(0, 0, 0));
+        SpriteManager::getInstance().drawSprite(Sprites::WARTHREAT_LOGO, 64, 32);
+    
     }
 
     bool isFinished() const {
-        return elapsedTime >= displayTime;
+        return elapsedTime >= transitionTime;
     }
 
 private:
-    int displayTime; // Time to display the logo
     int elapsedTime; // Time elapsed since display started
+    int transitionTime; // Time to transition to the next state
 };
 
 #endif // COMPANYLOGO_H 

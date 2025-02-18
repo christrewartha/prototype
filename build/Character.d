@@ -125,7 +125,9 @@ Character.o: D:/devkitPro/projects/nds/prototype/source/Character.cpp \
  D:/devkitPro/projects/nds/prototype/build/client2.h \
  D:/devkitPro/projects/nds/prototype/build/hatguy.h \
  D:/devkitPro/projects/nds/prototype/build/door_closed.h \
- D:/devkitPro/projects/nds/prototype/build/hat.h
+ D:/devkitPro/projects/nds/prototype/build/hat.h \
+ D:/devkitPro/projects/nds/prototype/build/warthreat.h \
+ D:/devkitPro/projects/nds/prototype/build/westbank.h
 D:/devkitPro/projects/nds/prototype/source/Character.h:
 D:/devkitPro/libnds/include/nds.h:
 D:/devkitPro/calico/include/calico.h:
@@ -254,3 +256,5 @@ D:/devkitPro/projects/nds/prototype/build/client2.h:
 D:/devkitPro/projects/nds/prototype/build/hatguy.h:
 D:/devkitPro/projects/nds/prototype/build/door_closed.h:
 D:/devkitPro/projects/nds/prototype/build/hat.h:
+D:/devkitPro/projects/nds/prototype/build/warthreat.h:
+D:/devkitPro/projects/nds/prototype/build/westbank.h:
