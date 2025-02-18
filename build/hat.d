@@ -1,0 +1,1 @@
+hat.o: hat.s

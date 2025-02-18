@@ -294,18 +294,21 @@ public:
             //        RGB15(70,130,180));
 
             // draw the hats    
-            int hat_x_margin = 25;
-            int hat_y_margin = 50;
-            int hat_width = 10;
-            int hat_height = 10;
+            int hat_x_margin = 16;
+            int hat_y_margin = 52;
+            int hat_height = 8;
             int hat_spacing = 3;    
             for(int i = 0; i < hats; i++) 
             {
-                glBoxFilled(xPos + hat_x_margin, 
-                    yPos + hat_y_margin - (hat_height + hat_spacing) * i, 
-                    xPos + hat_x_margin + hat_width, 
-                    yPos + hat_y_margin - (hat_height + hat_spacing) * i + hat_height, 
-                    RGB15(0,0,139));
+                SpriteManager::getInstance().drawSprite(Sprites::HAT,
+                        xPos + hat_x_margin,
+                        yPos + hat_y_margin - (hat_height + hat_spacing) * i);
+
+                //glBoxFilled(xPos + hat_x_margin, 
+                //    yPos + hat_y_margin - (hat_height + hat_spacing) * i, 
+                //    xPos + hat_x_margin + hat_width, 
+                //    yPos + hat_y_margin - (hat_height + hat_spacing) * i + hat_height, 
+                //    RGB15(0,0,139));
             }
         }
     }
