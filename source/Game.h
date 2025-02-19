@@ -230,11 +230,11 @@ private:
             InitRound();
             Player::getInstance().resetDoorsCollected();
             display_round_number_timer = TIME_TO_NEXT_ROUND;
+        }
 
-            // Check if the player has lost all lives
-            if(Player::getInstance().getPlayerLives() <= 0) {
-                game_over = true;
-            }
+        // Check if the player has lost all lives
+        if(Player::getInstance().getPlayerLives() <= 0 && between_rounds) {
+            game_over = true;
         }
 
         
